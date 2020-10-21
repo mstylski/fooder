@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="login-container">
+  <img class="img-fluid app-logo" src="/assets/images/efooder-logo.png" routerLink="/">
+  <h3 class="text-center">Panel Logowania</h3>
+  <p class="mb-3">Zaloguj się do Panelu Kucharza</p>
+  <form>
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <label>
+          <input matInput [formControl]="emailFormControl" placeholder="Email">
+        </label>
+        <mat-error *ngIf="emailFormControl.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Password</mat-label>
+        <label>
+          <input matInput [formControl]="passwordFormControl" placeholder="Password">
+        </label>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+          Password must have at least 6 letters
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="text-center mt-1">
+      <button mat-raised-button color="primary"
+              (click)="login()"
+              [disabled]="passwordFormControl.invalid || emailFormControl.invalid">
+        Zaloguj sie
+      </button>
+    </div>
+  </form>
+</div>
