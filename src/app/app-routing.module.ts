@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { HeaderComponent } from './core/dashboard/header/header.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
