@@ -1,2 +1,8 @@
 <h1>Your Recipes</h1>
-<app-recipes-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipes-item>
+
+<div class="row">
+  <div class="col-sm-6 mb-3" *ngFor="let recipe of recipes">
+    <app-recipes-item [recipe]="recipe"></app-recipes-item>
+  </div>
+</div>
+

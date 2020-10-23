@@ -1,13 +1,20 @@
+export enum Kind {
+  STARTER = 'starter',
+  MAIN = 'main',
+  DESSERT = 'dessert',
+  SOUP = 'soup',
+}
+
 export interface RecipeHttpPayload {
   title: string;
-  kind: string;
+  kind: Kind;
   formula: string;
   isVegan: boolean;
 }
 
 export interface RecipeResponse {
   title: string;
-  kind: string;
+  kind: Kind;
   formula: string;
   isVegan: boolean;
   userId: number;

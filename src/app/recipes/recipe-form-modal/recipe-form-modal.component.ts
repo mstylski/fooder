@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Kind } from '../../shared/models/recipe.model';
 
 
 @Component({
@@ -11,25 +14,33 @@ import { RecipeService } from '../recipe.service';
 
 export class RecipeFormModalComponent implements OnInit {
   modelForm: FormGroup;
+  readonly kind = Kind;
 
-  constructor(private formBuilder: FormBuilder, private recipeService: RecipeService) {
+  constructor(private formBuilder: FormBuilder,
+              private recipeService: RecipeService,
+              private snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<RecipeFormModalComponent>){
 
   }
 
-  ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe(console.log);
+  ngOnInit() {
     this.modelForm = this.formBuilder.group({
       title: '',
-      kind: '',
+      kind: this.kind.MAIN,
       formula: '',
-      isVegan: ''
+      isVegan: false,
     });
   }
 
   addRecipe() {
     this.recipeService.addRecipe(this.modelForm.value).subscribe(() => {
-      console.log('Przepis dodany poprawnie');
+      this.dialogRef.close();
+      this.snackBar.open('Recipe has been added successfully!');
     });
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }
 

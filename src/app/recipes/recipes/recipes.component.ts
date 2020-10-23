@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth/auth.service';
-import { RecipeResponse } from '../../shared/models/recipe.model';
+import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 
 @Component({
   selector: 'app-recipes',
-  templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  templateUrl: 'recipes.component.html',
+  styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
   recipes: RecipeResponse[] = [
     {
       title: 'Kimchi',
-      kind: 'starter',
+      kind: Kind.STARTER,
       formula: '1kg kapusty, chilii, cebula',
       isVegan: true,
       userId: 1,
@@ -20,7 +19,7 @@ export class RecipesComponent implements OnInit {
     },
     {
       title: 'Udon',
-      kind: 'main',
+      kind: Kind.MAIN,
       formula: 'udon, puder z nori, warzywa sezonowe',
       isVegan: true,
       userId: 2,
@@ -29,7 +28,7 @@ export class RecipesComponent implements OnInit {
     },
     {
       title: 'Kurczak Sekretarza Kima',
-      kind: 'main',
+      kind: Kind.DESSERT,
       formula: 'kurczak, ryż jaśminowy, warzywa sezonowe',
       isVegan: false,
       userId: 3,

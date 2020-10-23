@@ -8,9 +8,8 @@ import { RecipeFormModalComponent } from '../recipes/recipe-form-modal/recipe-fo
 
 
 @NgModule({
-  declarations: [DashboardComponent, SidebarComponent, HeaderComponent, RecipeFormModalComponent],
+  declarations: [DashboardComponent, SidebarComponent, HeaderComponent],
   exports: [
-    RecipeFormModalComponent,
     DashboardComponent
   ],
   imports: [

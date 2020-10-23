@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
 import { RecipesComponent } from './recipes/recipes.component';
 import { SharedModule } from '../shared/shared.module';
-import { CoreModule } from '../core/core.module';
 import { RecipesItemComponent } from './recipes-item/recipes-item.component';
+import { RecipeFormModalComponent } from './recipe-form-modal/recipe-form-modal.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [RecipesComponent, RecipesItemComponent],
+  declarations: [RecipesComponent, RecipesItemComponent, RecipeFormModalComponent],
   imports: [
-    CommonModule,
-    MatDialogModule,
-    SharedModule,
-    CoreModule
+    SharedModule
   ]
 })
 export class RecipesModule {

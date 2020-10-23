@@ -1,33 +1,36 @@
-<div class="container" *ngIf="modelForm">
+<h1 mat-dialog-title>Add Recipe</h1>
+<div mat-dialog-content>
   <form [formGroup]="modelForm">
     <div>
-      <mat-form-field>
+      <mat-form-field class="w-100">
         <mat-label>Title</mat-label>
         <input matInput formControlName="title">
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="w-100" appearance="fill">
         <mat-label>Choose type of food</mat-label>
         <mat-select formControlName="kind">
-          <mat-option value="option">starter</mat-option>
-          <mat-option value="main">main</mat-option>
-          <mat-option value="soup">soup</mat-option>
-          <mat-option value="dessert">dessert</mat-option>
+          <mat-option [value]="kind.STARTER">starter</mat-option>
+          <mat-option [value]="kind.MAIN">main</mat-option>
+          <mat-option [value]="kind.SOUP">soup</mat-option>
+          <mat-option [value]="kind.DESSERT">dessert</mat-option>
         </mat-select>
         <mat-hint align="end"></mat-hint>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="w-100" appearance="fill">
         <mat-label>Here put your Formula</mat-label>
-        <textarea matInput formControlName="formula"></textarea>
+        <textarea matInput formControlName="formula" rows="10"></textarea>
       </mat-form-field>
     </div>
     <div>
       <mat-checkbox formControlName="isVegan">Is Vegan?</mat-checkbox>
     </div>
-    <button type="submit" (click)="addRecipe()">Send</button>
   </form>
 </div>
-
+<div mat-dialog-actions class="d-flex justify-content-between">
+  <button mat-raised-button (click)="close()">Close</button>
+  <button mat-raised-button color="primary" (click)="addRecipe()">Save</button>
+</div>

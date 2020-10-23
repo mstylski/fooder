@@ -1,4 +1,7 @@
 <app-header (menuToggled)="sidebar.toggle()"></app-header>
 <app-sidebar #sidebar> </app-sidebar>
 <button mat-raised-button color="primary" (click)="openDialog()">Add Recipe</button>
-<router-outlet></router-outlet>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

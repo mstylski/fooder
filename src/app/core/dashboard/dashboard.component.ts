@@ -18,6 +18,7 @@ export class DashboardComponent  {
   openDialog() {
     this.dialog.open(RecipeFormModalComponent, {
       width: '700px',
+      disableClose: true,
     });
   }
 }
