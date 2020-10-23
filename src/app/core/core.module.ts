@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './dashboard/header/header.component';
+import { SharedModule } from '../shared/shared.module';
+import { RecipeFormModalComponent } from '../recipes/recipe-form-modal/recipe-form-modal.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, SidebarComponent, HeaderComponent, RecipeFormModalComponent],
+  exports: [
+    RecipeFormModalComponent,
+    DashboardComponent
+  ],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+}

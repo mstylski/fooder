@@ -1,0 +1,21 @@
+@import "src/assets/styles/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 70px;
+  border-bottom: 1px solid $grey-75;
+
+  mat-icon {
+    color: $blue-500;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+}
+
+mat-sidenav {
+  z-index: 999;
+}
+

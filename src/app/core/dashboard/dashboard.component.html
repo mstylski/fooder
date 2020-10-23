@@ -1,1 +1,4 @@
-<p>dashboard works!</p>
+<app-header (menuToggled)="sidebar.toggle()"></app-header>
+<app-sidebar #sidebar> </app-sidebar>
+<button mat-raised-button color="primary" (click)="openDialog()">Add Recipe</button>
+<router-outlet></router-outlet>
