@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
+import { RecipeResponse } from '../../shared/models/recipe.model';
+import { RecipeFormModalComponent } from '../recipe-form-modal/recipe-form-modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { RecipeService } from '../recipe.service';
+import { filter, finalize } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-recipes',
@@ -7,40 +13,45 @@ import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
   styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  recipes: RecipeResponse[] = [
-    {
-      title: 'Kimchi',
-      kind: Kind.STARTER,
-      formula: '1kg kapusty, chilii, cebula',
-      isVegan: true,
-      userId: 1,
-      createdAt: '',
-      id: ''
-    },
-    {
-      title: 'Udon',
-      kind: Kind.MAIN,
-      formula: 'udon, puder z nori, warzywa sezonowe',
-      isVegan: true,
-      userId: 2,
-      createdAt: '',
-      id: ''
-    },
-    {
-      title: 'Kurczak Sekretarza Kima',
-      kind: Kind.DESSERT,
-      formula: 'kurczak, ryż jaśminowy, warzywa sezonowe',
-      isVegan: false,
-      userId: 3,
-      createdAt: '',
-      id: ''
-    }
-  ];
+  recipes: RecipeResponse[] = [];
+  isLoading = false;
 
-  constructor() {
+  constructor(public dialog: MatDialog,
+              private recipeService: RecipeService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
+    this.getRecipes();
   }
 
+  openDialog() {
+    this.dialog.open(RecipeFormModalComponent, {
+      width: '700px',
+      disableClose: true,
+    })
+      .afterClosed()
+      .pipe(filter(Boolean))
+      .subscribe(() => this.getRecipes());
+  }
+
+  public getRecipes() {
+    this.isLoading = true;
+    this.recipeService.getRecipes().pipe(
+      finalize(() => this.isLoading = false),
+    ).subscribe(recipes => {
+      this.recipes = recipes;
+    });
+  }
+
+  deleteRecipe(value: RecipeResponse) {
+    this.recipeService.deleteRecipe(value.id).subscribe(() => {
+      this.getRecipes();
+      this.snackBar.open('Recipe has been deleted successfully!', null, {
+        panelClass: ['green-snackbar']
+      });
+    });
+  }
 }
+
+

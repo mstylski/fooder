@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.number {
+  color: white;
+  background-color: #20515a;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.no-recipes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

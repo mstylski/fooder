@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RecipeResponse } from '../../shared/models/recipe.model';
 
 @Component({
@@ -7,6 +7,13 @@ import { RecipeResponse } from '../../shared/models/recipe.model';
   styleUrls: ['./recipes-item.component.scss']
 })
 export class RecipesItemComponent {
-@Input()  recipe: RecipeResponse;
 
+  @Input() recipe: RecipeResponse;
+  @Output() deleted = new EventEmitter<RecipeResponse>();
+
+  public deleteRecipe() {
+    this.deleted.emit(this.recipe);
+  }
 }
+
+

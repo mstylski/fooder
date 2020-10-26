@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const Modules = [
   RouterModule,
@@ -13,12 +14,13 @@ const Modules = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [SpinnerComponent],
   imports: [
     ...Modules
   ],
   exports: [
-    ...Modules
+    ...Modules,
+    SpinnerComponent
   ]
 })
 export class SharedModule {

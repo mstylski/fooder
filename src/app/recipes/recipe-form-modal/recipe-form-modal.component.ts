@@ -34,8 +34,10 @@ export class RecipeFormModalComponent implements OnInit {
 
   addRecipe() {
     this.recipeService.addRecipe(this.modelForm.value).subscribe(() => {
-      this.dialogRef.close();
-      this.snackBar.open('Recipe has been added successfully!');
+      this.dialogRef.close(true);
+      this.snackBar.open('Recipe has been added successfully!', null, {
+        panelClass: ['green-snackbar']
+      });
     });
   }
 

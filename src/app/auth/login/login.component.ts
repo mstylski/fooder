@@ -24,7 +24,7 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.emailFormControl.value, this.passwordFormControl.value).subscribe(() => {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard/recipes']);
     });
   }
 }

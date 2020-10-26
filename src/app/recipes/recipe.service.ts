@@ -14,9 +14,10 @@ export class RecipeService {
   }
 
   getRecipes(): Observable<RecipeResponse[]> {
-    const headers = {
-      Authorization: `Bearer ${this.authService.getTokenFromLocalstorage()}`
-    };
-    return this.http.get<RecipeResponse[]>('https://api.efooder.pl/recipes', {headers});
+    return this.http.get<RecipeResponse[]>('https://api.efooder.pl/recipes');
+  }
+
+  deleteRecipe(id: string): Observable<RecipeResponse[]> {
+    return this.http.delete<RecipeResponse[]>(`https://api.efooder.pl/recipes/${id}`);
   }
 }

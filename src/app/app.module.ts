@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpHeadersInterceptor } from './auth/http-headers.interceptor';
+import { MaterialModule } from './shared/material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,8 +24,14 @@ import { RecipesModule } from './recipes/recipes.module';
     AuthModule,
     CoreModule,
     RecipesModule,
+    MaterialModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: HttpHeadersInterceptor, multi: true,
+    }
+  ],
   exports: [
   ],
   bootstrap: [AppComponent]

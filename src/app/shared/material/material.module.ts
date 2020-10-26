@@ -45,7 +45,7 @@ const MaterialModules = [
   MatSlideToggleModule,
   MatProgressSpinnerModule,
   MatTooltipModule,
-  MatCardModule
+  MatCardModule,
 ];
 
 

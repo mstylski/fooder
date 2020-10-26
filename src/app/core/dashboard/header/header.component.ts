@@ -1,5 +1,6 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { User } from '../../../shared/models/user.model';
 
-import { Component, EventEmitter, Output } from '@angular/core';
 
 
 
@@ -9,6 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Input() user: User;
   @Output() menuToggled = new EventEmitter<void>();
 
 

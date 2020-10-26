@@ -4,20 +4,23 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RegistrationComponent } from './auth/registration/registration.component';
-import { RecipeFormModalComponent } from './recipes/recipe-form-modal/recipe-form-modal.component';
 import { RecipesComponent } from './recipes/recipes/recipes.component';
+import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/dashboard/recipes',
     pathMatch: 'full',
   },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
-    children: [{path: 'recipes', component: RecipesComponent },
-] },
+  {
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
+    children: [{ path: 'recipes', component: RecipesComponent },
+      { path: 'recipes/:id', component: RecipeDetailsComponent },
+    ]
+  },
 ];
 
 @NgModule({
