@@ -11,7 +11,7 @@ const tokenKey = 'FOODER_TOKEN_KEY';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  public user$ = new BehaviorSubject<User | null>(null);
+  readonly user$ = new BehaviorSubject<User | null>(null);
 
   constructor(
     private http: HttpClient,

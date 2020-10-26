@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeResponse } from '../../shared/models/recipe.model';
+import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 import { RecipeFormModalComponent } from '../recipe-form-modal/recipe-form-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from '../recipe.service';
@@ -15,6 +15,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RecipesComponent implements OnInit {
   recipes: RecipeResponse[] = [];
   isLoading = false;
+  numberOfMainRecipes: number;
+  numberOfStarterRecipes: number;
+  numberOfSoupRecipes: number;
+  numberOfDessertRecipes: number;
 
   constructor(public dialog: MatDialog,
               private recipeService: RecipeService,
@@ -38,9 +42,10 @@ export class RecipesComponent implements OnInit {
   public getRecipes() {
     this.isLoading = true;
     this.recipeService.getRecipes().pipe(
-      finalize(() => this.isLoading = false),
+      finalize(() => this.isLoading = false)
     ).subscribe(recipes => {
       this.recipes = recipes;
+      this.setCounters();
     });
   }
 
@@ -51,6 +56,13 @@ export class RecipesComponent implements OnInit {
         panelClass: ['green-snackbar']
       });
     });
+  }
+
+  private setCounters() {
+    this.numberOfMainRecipes = this.recipes.filter(recipe => recipe.kind === Kind.MAIN).length;
+    this.numberOfStarterRecipes = this.recipes.filter(recipe => recipe.kind === Kind.STARTER).length;
+    this.numberOfSoupRecipes = this.recipes.filter(recipe => recipe.kind === Kind.SOUP).length;
+    this.numberOfDessertRecipes = this.recipes.filter(recipe => recipe.kind === Kind.DESSERT).length;
   }
 }
 
