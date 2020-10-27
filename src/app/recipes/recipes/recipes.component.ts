@@ -5,7 +5,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from '../recipe.service';
 import { filter, finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, Observer } from 'rxjs';
 
+export interface Tab {
+  label: string;
+  content: string;
+}
 
 @Component({
   selector: 'app-recipes',
@@ -13,6 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
+  asyncTabs: Observable<Tab[]>;
   recipes: RecipeResponse[] = [];
   isLoading = false;
   numberOfMainRecipes: number;
