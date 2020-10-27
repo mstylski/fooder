@@ -18,6 +18,10 @@ export class RecipeService {
   }
 
   deleteRecipe(id: string): Observable<RecipeResponse[]> {
-    return this.http.delete<RecipeResponse[]>(`https://api.efooder.pl/recipes/${id}`);
+    return this.http.delete<RecipeResponse[]>(`https://api.efooder.pl/recipes/${ id }`);
+  }
+
+  getRecipe(id: string): Observable<RecipeResponse> {
+    return this.http.get<RecipeResponse>(`https://api.efooder.pl/recipes/${ id }`);
   }
 }

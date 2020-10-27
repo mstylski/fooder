@@ -19,11 +19,8 @@
         <mat-hint align="end"></mat-hint>
       </mat-form-field>
     </div>
-    <div>
-      <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Here put your Formula</mat-label>
-        <textarea matInput formControlName="formula" rows="10"></textarea>
-      </mat-form-field>
+    <div class="formula">
+      <quill-editor formControlName="formula" placeholder="formula">Here put your Formula</quill-editor>
     </div>
     <div>
       <mat-checkbox formControlName="isVegan">Is Vegan?</mat-checkbox>

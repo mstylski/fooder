@@ -10,7 +10,7 @@ const Modules = [
   CommonModule,
   ReactiveFormsModule,
   FormsModule,
-  MaterialModule
+  MaterialModule,
 ];
 
 @NgModule({

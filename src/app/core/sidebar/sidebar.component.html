@@ -18,7 +18,7 @@
           routerLinkActive="active"
           (click)="close()">
           <div class="nav-link-content">
-            <mat-icon>emoji_people</mat-icon>
+            <span class="material-icons">list</span>
             <span>Recipes of other Cooks</span>
           </div>
         </li>
@@ -28,7 +28,7 @@
           routerLinkActive="active"
           (click)="close()">
           <div class="nav-link-content">
-            <mat-icon>emoji_people</mat-icon>
+            <span class="material-icons">reorder</span>
             <span>Recipe List</span>
           </div>
         </li>
@@ -38,14 +38,14 @@
           routerLinkActive="active"
           (click)="close()">
           <div class="nav-link-content">
-            <mat-icon>emoji_people</mat-icon>
+<span class="material-icons">account_circle</span>
             <span>User Profile</span>
           </div>
         </li>
 
         <li *ngIf="user$ | async" class="bt-nav-link" (click)="logout()">
           <div class="nav-link-content">
-            <mat-icon>exit_to_app</mat-icon>
+            <span class="material-icons">login</span>
             <span>Logout</span>
           </div>
         </li>

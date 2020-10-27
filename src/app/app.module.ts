@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpHeadersInterceptor } from './auth/http-headers.interceptor';
 import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
+import { RecipeService } from './recipes/recipe.service';
+import { RecipeResolveService } from './recipes/recipe-resolve.service';
 
 
 @NgModule({
@@ -28,12 +30,15 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   providers: [
+    RecipeService,
     {
-      provide: HTTP_INTERCEPTORS, useClass: HttpHeadersInterceptor, multi: true,
-    }
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true,
+    },
   ],
-  exports: [
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

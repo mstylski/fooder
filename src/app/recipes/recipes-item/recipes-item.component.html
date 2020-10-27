@@ -9,6 +9,6 @@
   <mat-card-actions class="d-flex justify-content-end">
     <button mat-raised-button color="warn" (click)="deleteRecipe()" >Delete</button>
     <button mat-raised-button color="primary">Edit</button>
-    <button mat-raised-button color="primary" (click)="showDetails()">Details</button>
+    <button mat-raised-button color="primary" routerLink="{{recipe.id}}">Details</button>
   </mat-card-actions>
 </mat-card>
