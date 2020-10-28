@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Kind } from '../../shared/models/recipe.model';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 
 
 @Component({
@@ -13,23 +13,23 @@ import { Kind } from '../../shared/models/recipe.model';
 })
 
 export class RecipeFormModalComponent implements OnInit {
+  recipe: RecipeResponse;
   modelForm: FormGroup;
   readonly kind = Kind;
 
   constructor(private formBuilder: FormBuilder,
               private recipeService: RecipeService,
               private snackBar: MatSnackBar,
-              public dialogRef: MatDialogRef<RecipeFormModalComponent>){
-
+              public dialogRef: MatDialogRef<RecipeFormModalComponent>,
+              @Optional() @Inject(MAT_DIALOG_DATA) data: { recipe: RecipeResponse }) {
+    if (data) {
+      this.recipe = data.recipe;
+    }
   }
 
+
   ngOnInit() {
-    this.modelForm = this.formBuilder.group({
-      title: '',
-      kind: this.kind.MAIN,
-      formula: '',
-      isVegan: false,
-    });
+    this.buildForm();
   }
 
   addRecipe() {
@@ -38,6 +38,31 @@ export class RecipeFormModalComponent implements OnInit {
       this.snackBar.open('Recipe has been added successfully!', null, {
         panelClass: ['green-snackbar']
       });
+    });
+  }
+
+  editRecipe() {
+    this.recipeService.editRecipe(this.modelForm.value, this.recipe.id).subscribe(() => {
+      this.dialogRef.close(true);
+      this.snackBar.open('Recipe has been updated successfully!', null, {
+        panelClass: ['green-snackbar']
+      });
+    });
+  }
+
+  private buildForm() {
+    const defaultValues = {
+      title: '',
+      kind: Kind.MAIN,
+      formula: '',
+      isVegan: true,
+    };
+    const recipe = this.recipe || defaultValues;
+    this.modelForm = this.formBuilder.group({
+      title: [recipe.title, { validators: [Validators.required] }],
+      kind: [recipe.kind, { validators: [Validators.required] }],
+      formula: [recipe.formula, { validators: [Validators.required] }],
+      isVegan: [recipe.isVegan, { validators: [Validators.required] }],
     });
   }
 

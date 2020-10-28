@@ -11,12 +11,17 @@ export class RecipesItemComponent {
 
   @Input() recipe: RecipeResponse;
   @Output() deleted = new EventEmitter<RecipeResponse>();
+  @Output() edited = new EventEmitter<RecipeResponse>();
 
   constructor() {
   }
 
   public deleteRecipe() {
     this.deleted.emit(this.recipe);
+  }
+
+  public editRecipe() {
+    this.edited.emit(this.recipe);
   }
 }
 
