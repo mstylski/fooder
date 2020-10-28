@@ -29,5 +29,6 @@
 </div>
 <div mat-dialog-actions class="d-flex justify-content-between">
   <button mat-raised-button (click)="close()">Close</button>
-  <button mat-raised-button color="primary" (click)="addRecipe()">Save</button>
+  <button *ngIf="!recipe" mat-raised-button color="primary" (click)="addRecipe()">Save</button>
+  <button *ngIf="recipe" mat-raised-button color="primary" (click)="editRecipe()">Update</button>
 </div>

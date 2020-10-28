@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from '../recipe.service';
 import { filter, finalize } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable, Observer } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface Tab {
   label: string;
@@ -20,6 +20,7 @@ export interface Tab {
 export class RecipesComponent implements OnInit {
   asyncTabs: Observable<Tab[]>;
   recipes: RecipeResponse[] = [];
+  recipesByKind: RecipeResponse[] = [];
   isLoading = false;
   numberOfMainRecipes: number;
   numberOfStarterRecipes: number;
@@ -51,6 +52,7 @@ export class RecipesComponent implements OnInit {
       finalize(() => this.isLoading = false)
     ).subscribe(recipes => {
       this.recipes = recipes;
+      this.filterRecipesByKind(0);
       this.setCounters();
     });
   }
@@ -62,6 +64,39 @@ export class RecipesComponent implements OnInit {
         panelClass: ['green-snackbar']
       });
     });
+  }
+
+  openEditRecipeDialog(recipe: RecipeResponse) {
+    const edited$ = this.dialog.open(RecipeFormModalComponent, {
+      width: '700px',
+      disableClose: true,
+      data: { recipe },
+    })
+      .afterClosed()
+      .pipe(filter(Boolean))
+      .subscribe(() => this.getRecipes());
+  }
+
+  filterRecipesByKind(tabIndex: number) {
+    if (tabIndex === 0) {
+      this.recipesByKind = this.recipes;
+    }
+
+    if (tabIndex === 1) {
+      this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.STARTER);
+    }
+
+    if (tabIndex === 2) {
+      this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.MAIN);
+    }
+
+    if (tabIndex === 3) {
+      this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.SOUP);
+    }
+
+    if (tabIndex === 4) {
+      this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.DESSERT);
+    }
   }
 
   private setCounters() {
