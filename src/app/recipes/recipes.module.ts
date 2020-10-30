@@ -7,8 +7,13 @@ import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.
 import { QuillModule } from 'ngx-quill';
 
 
+
 @NgModule({
-  declarations: [RecipesComponent, RecipesItemComponent, RecipeFormModalComponent, RecipeDetailsComponent],
+  declarations: [RecipesComponent,
+    RecipesItemComponent,
+    RecipeFormModalComponent,
+    RecipeDetailsComponent,
+    ],
   imports: [
     SharedModule,
     QuillModule.forRoot({
@@ -18,8 +23,8 @@ import { QuillModule } from 'ngx-quill';
         toolbar: {
           container: [
             ['bold', 'italic'],
-            [{list: 'bullet'}],
-            [{align: ['', 'right', 'center']}],
+            [{ list: 'bullet' }],
+            [{ align: ['', 'right', 'center'] }],
           ],
         },
       }

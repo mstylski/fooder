@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,7 +9,8 @@ import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 @Component({
   selector: 'app-recipe-form-modal',
   templateUrl: './recipe-form-modal.component.html',
-  styleUrls: ['./recipe-form-modal.component.scss']
+  styleUrls: ['./recipe-form-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class RecipeFormModalComponent implements OnInit {

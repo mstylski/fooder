@@ -6,6 +6,7 @@ import { User, UserResponse } from '../shared/models/user.model';
 import { map } from 'rxjs/operators';
 import jwt_decode from 'jwt-decode';
 import { isAfter } from 'date-fns';
+import { environment } from '../../environments/environment';
 const tokenKey = 'FOODER_TOKEN_KEY';
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +21,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<UserResponse>('https://api.efooder.pl/auth/login', { email, password })
+    return this.http.post<UserResponse>(`${environment.apiUrl}/auth/login`, { email, password })
       .pipe(
         map((userResponse) => {
           this.user$.next(userResponse.user);
@@ -31,7 +32,7 @@ export class AuthService {
   }
 
   register(email: string, password: string, firstName: string, lastName: string) {
-    return this.http.post<UserResponse>('https://api.efooder.pl/auth/register', { email, password, firstName, lastName })
+    return this.http.post<UserResponse>(`${environment.apiUrl}/auth/register`, { email, password, firstName, lastName })
       .pipe(
         map((userResponse) => {
           this.user$.next(userResponse.user);

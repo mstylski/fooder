@@ -1,35 +1,45 @@
-<h1>Your Recipes</h1>
-<button class="mb-4" mat-raised-button color="primary" (click)="openDialog()">Add Recipe</button>
-<p>You have <span class="number">{{ recipes.length }}</span> recipes</p>
-<div class="tabs">
-  <mat-tab-group (selectedIndexChange)="filterRecipesByKind($event)">
-    <mat-tab label="All  ({{ recipes.length }})"></mat-tab>
-    <mat-tab label="Starters  ({{ numberOfStarterRecipes }})"></mat-tab>
-    <mat-tab label="Main Dishes  ({{ numberOfMainRecipes }})"></mat-tab>
-    <mat-tab label="Soups  ({{ numberOfSoupRecipes }})"></mat-tab>
-    <mat-tab label="Desserts  ({{ numberOfDessertRecipes }})"></mat-tab>
-  </mat-tab-group>
+<div class="form-group">
 </div>
-
-<div class="spinner-container">
-  <app-spinner *ngIf="isLoading"></app-spinner>
-</div>
-<div *ngIf="!isLoading">
-  <div *ngIf="recipes.length > 0; else noRecipes" class="row">
-    <div class="col-sm-6 mb-3" *ngFor="let recipe of recipesByKind">
-      <app-recipes-item [recipe]="recipe"
-                        (deleted)="deleteRecipe($event)"
-                        (edited)="openEditRecipeDialog($event)"
-      ></app-recipes-item>
+<form>
+  <mat-form-field>
+    <input #input matInput placeholder="Search" (keyup)="filterbyTitle(input.value)">
+  </mat-form-field>
+  <h1>Your Recipes</h1>
+  <button class="mb-4" mat-raised-button color="primary" (click)="openDialog()">Add Recipe</button>
+  <p>You have <span class="number">{{ recipes.length }}</span> recipes</p>
+  <div class="tabs">
+    <mat-tab-group (selectedIndexChange)="filterRecipesByKind($event)">
+      <mat-tab label="All  ({{ recipes.length }})"></mat-tab>
+      <mat-tab label="Starters  ({{ numberOfStarterRecipes }})"></mat-tab>
+      <mat-tab label="Main Dishes  ({{ numberOfMainRecipes }})"></mat-tab>
+      <mat-tab label="Soups  ({{ numberOfSoupRecipes }})"></mat-tab>
+      <mat-tab label="Desserts  ({{ numberOfDessertRecipes }})"></mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="spinner-container">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+  </div>
+  <div *ngIf="!isLoading">
+    <div *ngIf="recipes.length > 0; else noRecipes" class="row">
+      <div class="col-sm-6 mb-3" *ngFor="let recipe of recipesByKind">
+        <app-recipes-item [recipe]="recipe"
+                          (deleted)="displayConfirmationModal($event)"
+                          (edited)="openEditRecipeDialog($event)"
+        ></app-recipes-item>
+      </div>
     </div>
   </div>
+  <ng-template #noRecipes>
+    <div class="no-recipes">
+      You have no recipes
+      <span class="material-icons">search</span>
+    </div>
+  </ng-template>
+</form>
+<div class="mat-paginator-container">
+  <mat-paginator
+  [hidePageSize]="true"
+  [length]="recipes.length"
+  [pageSize]="10"
+  (page)="paginate($event)"></mat-paginator>
 </div>
-<ng-template #noRecipes>
-  <div class="no-recipes">
-    You have no recipes
-    <span class="material-icons">search</span>
-  </div>
-</ng-template>
-
-
-

@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+
 
 const Modules = [
   RouterModule,
@@ -14,13 +16,15 @@ const Modules = [
 ];
 
 @NgModule({
-  declarations: [SpinnerComponent],
+  declarations: [SpinnerComponent, ConfirmationModalComponent
+  ],
   imports: [
     ...Modules
   ],
   exports: [
     ...Modules,
-    SpinnerComponent
+    SpinnerComponent,
+    ConfirmationModalComponent
   ]
 })
 export class SharedModule {

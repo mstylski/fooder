@@ -1,0 +1,16 @@
+<div class="confirmational-modal">
+  <header>
+    <h3>  {{ confirmationConfig.title}}</h3>
+  </header>
+  <div class="body">
+    <p [innerHTML]="confirmationConfig.body"></p>
+  </div>
+  <footer>
+    <button mat-raised-button class="bt-default-btn" (click)="cancel()">
+      {{ confirmationConfig.cancelBtnText }}
+    </button>
+    <button mat-raised-button class="btn-primary-btn" (click)="confirm()">
+      {{  confirmationConfig.confirmBtnText }}
+    </button>
+  </footer>
+</div>

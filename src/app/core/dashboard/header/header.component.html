@@ -8,5 +8,11 @@
   <button mat-icon-button color="black" aria-label="icon button with a menu icon" (click)="menuToggled.emit()">
     <mat-icon>menu</mat-icon>
   </button>
+  <mat-slide-toggle
+    class="mat-slide-toggle"
+    [color]="color"
+    [checked]="checked"
+    [disabled]="disabled">
+  </mat-slide-toggle>
 </div>
 </header>

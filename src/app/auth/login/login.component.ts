@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  hide = true;
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
