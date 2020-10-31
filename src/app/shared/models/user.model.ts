@@ -4,6 +4,13 @@ export interface User {
   firstName: string;
   id: string;
   lastName: string;
+  city: string;
+  state: string;
+  country: string;
+  diet: Diet;
+  aboutMe: string;
+  gender: Gender;
+  dateOfBirth: string;
 }
 
 export interface UserResponse {
@@ -18,14 +25,25 @@ export interface UpdateProfileHttpPayload {
   city: string;
   state: string;
   country: string;
-  diet: string;
+  diet: Diet;
   aboutMe: string;
-  age: number;
   gender: Gender;
+  dateOfBirth: string;
 }
 
 export enum Gender {
   FEMALE= 'female',
   MALE = 'male',
   OTHER = 'other'
+}
+
+export enum Diet {
+  KETOGENIC= 'ketogenic',
+  VEGAN = 'vegan',
+  VEGETARIAN = 'vegetarian',
+  PESCETARIAN = 'pescetarian',
+  LOWFODMAP = 'lowfodmap',
+  PALEO = 'paleo',
+  FREEGANISM = 'freeganism',
+  OMNIVOROUS = 'omnivorous'
 }

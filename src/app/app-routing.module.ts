@@ -21,17 +21,14 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
     children: [{ path: 'recipes', component: RecipesComponent },
       { path: 'recipes/:id', component: RecipeDetailsComponent , resolve: {recipe: RecipeResolveService}},
+      { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
     ]
   },
-  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(
     routes,
-    {
-      preloadingStrategy: PreloadAllModules
-    }
   )],
   exports: [RouterModule]
 })

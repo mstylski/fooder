@@ -11,17 +11,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class SidebarComponent {
   @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
-  // readonly navLinks: NavLink[] = [
-  //   { label: 'Cennik',  path: '/dodaj-oferte', icon: 'bar_chart' },
-  //   { label: 'Polityka prywatności',  path: '/polityka-prywatnosci', icon: 'assignment' },
-  //   { label: 'Regulamin',  path: '/regulamin', icon: 'assignment' },
-  // ];
   readonly user$ = this.authService.user$;
 
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router,
-  ) {}
+    private readonly authService: AuthService) {}
 
   toggle() {
     this.sidenav.toggle();

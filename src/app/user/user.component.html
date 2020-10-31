@@ -1,1 +1,7 @@
-<app-user-avatar></app-user-avatar>
+<div class="card">
+  <div class="card-body">
+    <h1>User Profile</h1>
+    <app-user-avatar></app-user-avatar>
+    <app-user-form [user]="user$ | async" (saved)="saveChanges($event)"></app-user-form>
+  </div>
+</div>
