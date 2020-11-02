@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Diet, Gender, User } from '../../shared/models/user.model';
+import { AuthService } from '../../auth/auth.service';
 
 export type UserFormValue = Omit<User, 'id'>;
 
@@ -15,8 +16,10 @@ export class UserFormComponent implements OnInit {
   modelForm: FormGroup;
   readonly gender = Gender;
   readonly diet = Diet;
+  readonly user$ = this.authService.user$;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService) {
   }
 
   ngOnInit() {

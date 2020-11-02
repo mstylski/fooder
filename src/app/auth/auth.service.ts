@@ -68,6 +68,11 @@ export class AuthService {
 
   pushUser() {
     this.user$.next(this.getUserFromDecodedToken());
+    if (this.isLoggedIn()) {
+      this.getMe().subscribe(user => {
+        this.user$.next(user); console.log(user);
+      });
+    }
   }
 
   private getUserFromDecodedToken(): User | null {
@@ -78,4 +83,11 @@ export class AuthService {
     return null;
   }
 
+  getMe() {
+    return this.http.get<User>(`${environment.apiUrl}/auth/me`);
+  }
+
+  deleteAvatar() {
+    return this.http.delete<User>(`${environment.apiUrl}/file-upload/avatars`);
+  }
 }

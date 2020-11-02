@@ -11,6 +11,7 @@ export interface User {
   aboutMe: string;
   gender: Gender;
   dateOfBirth: string;
+  avatarUrl: string;
 }
 
 export interface UserResponse {

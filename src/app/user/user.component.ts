@@ -21,11 +21,13 @@ export class UserComponent {
   }
 
   saveChanges(userFormValue: UserFormValue) {
-    this.userService.editUserData(userFormValue).subscribe(() => {
+    this.userService.editUserData(userFormValue).subscribe(() =>
+      this.authService.pushUser());
+    {
       this.snackBar.open('User data has been updated successfully!', null, {
         panelClass: ['green-snackbar']
       });
-    });
+    }
   }
 }
 

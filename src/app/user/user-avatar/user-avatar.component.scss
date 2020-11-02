@@ -1,14 +1,12 @@
-.container {
-  cursor: pointer;
-  text-align: center;
-
-  width: 200px;
-  height: 200px;
-  line-height: 180px;
+:host {
+  display: block;
 }
 
+.inputTypeFile {
+  display: none;
+}
 
 .user-photo {
-  display: flex;
-  justify-content: space-between;
+  width: 200px;
 }
+

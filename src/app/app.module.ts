@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/recipe.service';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,7 @@ import { RecipeService } from './recipes/recipe.service';
     CoreModule,
     RecipesModule,
     MaterialModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     RecipeService,
