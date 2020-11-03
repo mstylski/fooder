@@ -5,6 +5,12 @@ export enum Kind {
   SOUP = 'soup',
 }
 
+export interface RecipeImage {
+  id: number;
+  recipeId: number;
+  url: string;
+}
+
 export interface RecipeHttpPayload {
   title: string;
   kind: Kind;
@@ -20,4 +26,5 @@ export interface RecipeResponse {
   userId: number;
   createdAt: string;
   id: string;
+  images: RecipeImage[];
 }

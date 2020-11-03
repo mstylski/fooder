@@ -70,7 +70,7 @@ export class AuthService {
     this.user$.next(this.getUserFromDecodedToken());
     if (this.isLoggedIn()) {
       this.getMe().subscribe(user => {
-        this.user$.next(user); console.log(user);
+        this.user$.next(user);
       });
     }
   }

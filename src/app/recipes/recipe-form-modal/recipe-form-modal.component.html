@@ -7,6 +7,16 @@
         <input matInput formControlName="title">
       </mat-form-field>
     </div>
+    <div *ngIf="createdRecipeId">
+      <label for="upload">
+        <input class="inputTypeFile"
+               type="file"
+               name="recipeImage"
+               (change)="uploadImage($event)"
+               id="upload">
+        <strong>Upload your images here</strong>
+      </label>
+    </div>
     <div>
       <mat-form-field class="w-100" appearance="fill">
         <mat-label>Choose type of food</mat-label>
