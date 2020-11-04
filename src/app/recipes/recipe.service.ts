@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RecipeHttpPayload, RecipeImage, RecipeResponse } from '../shared/models/recipe.model';
+import { RecipeHttpPayload, RecipeResponse } from '../shared/models/recipe.model';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 

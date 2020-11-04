@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User, UserResponse } from '../shared/models/user.model';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import jwt_decode from 'jwt-decode';
 import { isAfter } from 'date-fns';
 import { environment } from '../../environments/environment';
@@ -67,13 +67,15 @@ export class AuthService {
   }
 
   pushUser() {
-    this.user$.next(this.getUserFromDecodedToken());
-    if (this.isLoggedIn()) {
-      this.getMe().subscribe(user => {
-        this.user$.next(user);
+
+    this.getMe()
+      .pipe(filter(Boolean))
+      .subscribe(user => {
+      console.log(user);
+      this.user$.next(user as User);
       });
     }
-  }
+
 
   private getUserFromDecodedToken(): User | null {
     const token = this.getTokenFromLocalstorage();

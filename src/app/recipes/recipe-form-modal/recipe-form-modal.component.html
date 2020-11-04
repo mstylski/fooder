@@ -7,14 +7,15 @@
         <input matInput formControlName="title">
       </mat-form-field>
     </div>
-    <div *ngIf="createdRecipeId">
+    <div *ngIf="recipe?.id || createdRecipeId">
       <label for="upload">
         <input class="inputTypeFile"
+               multiple
                type="file"
                name="recipeImage"
                (change)="uploadImage($event)"
                id="upload">
-        <strong>Upload your images here</strong>
+        <strong class="upload">Upload your images here</strong>
       </label>
     </div>
     <div>

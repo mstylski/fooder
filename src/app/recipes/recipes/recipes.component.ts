@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 import { RecipeFormModalComponent } from '../recipe-form-modal/recipe-form-modal.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,6 +20,7 @@ export const defaultPageEvent: PageEvent = {
   pageSize: 10,
   length: 0
 };
+
 @Component({
   selector: 'app-recipes',
   templateUrl: 'recipes.component.html',
@@ -87,10 +88,10 @@ export class RecipesComponent implements OnInit, OnDestroy {
   openEditRecipeDialog(recipe: RecipeResponse) {
     const edited$ = this.dialog
       .open(RecipeFormModalComponent, {
-      width: '700px',
-      disableClose: true,
-      data: { recipe },
-    })
+        width: '700px',
+        disableClose: true,
+        data: { recipe },
+      })
       .afterClosed()
       .pipe(filter(Boolean))
       .subscribe(() => this.getRecipes());
@@ -99,18 +100,18 @@ export class RecipesComponent implements OnInit, OnDestroy {
   displayConfirmationModal(recipe: RecipeResponse) {
     const asked$ = this.dialog
       .open(ConfirmationModalComponent, {
-panelClass: 'custom-mat-confirm-dialog',
+        panelClass: 'custom-mat-confirm-dialog',
         data: {
-  title: 'Delete recipe',
+          title: 'Delete recipe',
           body: 'Do you really want to delete this recipe?',
           confirmBtnText: `Yes`,
           cancelBtnText: `No!`
         } as ConfirmationModalConfig
-    })
+      })
       .afterClosed()
-      .pipe(filter(result => result === ConfirmationResult.CONFIRM ))
+      .pipe(filter(result => result === ConfirmationResult.CONFIRM))
       .subscribe(() => {
-          this.deleteRecipe(recipe);
+        this.deleteRecipe(recipe);
       });
   }
 

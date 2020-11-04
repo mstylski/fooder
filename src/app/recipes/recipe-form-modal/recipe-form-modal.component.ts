@@ -20,7 +20,6 @@ export class RecipeFormModalComponent implements OnInit {
   modelForm: FormGroup;
   readonly kind = Kind;
   createdRecipeId: string;
-  SERVER_URL = `${ environment.apiUrl }/file-upload/recipes/`;
 
   constructor(private formBuilder: FormBuilder,
               private recipeService: RecipeService,
@@ -49,19 +48,20 @@ export class RecipeFormModalComponent implements OnInit {
   }
 
   uploadImage(event) {
-    if (event.target.files.length > 0) {
-      const files = event.target.files[0];
+      const files = Array.from(event.target.files) as Blob[];
       const formData = new FormData();
-      formData.append('files', files);
-      this.httpClient.post<any>(this.SERVER_URL + this.createdRecipeId, formData).subscribe(() => {
+      files.forEach(file => formData.append('files', file));
+      this.httpClient.post<any>(`${ environment.apiUrl }/file-upload/recipes/` + this.createdRecipeId, formData).subscribe(() => {
+        this.recipeService.getRecipe(this.createdRecipeId).subscribe(recipe => this.recipe = recipe);
+        this.dialogRef.close(true);
         this.snackBar.open('Image has been added successfully!', null, {
           panelClass: ['green-snackbar']
         });
       });
     }
-  }
 
   editRecipe() {
+    console.log(this.recipe);
     this.recipeService.editRecipe(this.modelForm.value, this.recipe.id).subscribe(() => {
       this.dialogRef.close(true);
       this.snackBar.open('Recipe has been updated successfully!', null, {
