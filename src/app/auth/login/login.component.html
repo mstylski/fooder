@@ -1,1 +1,53 @@
-<p>login works!</p>
+<div class="login-container">
+  <img class="img-fluid app-logo" src="/assets/images/efooder-logo.png"
+       routerLink="/" alt="efooder">
+  <p class="mb-3">Login to Cook Dashboard</p>
+  <form>
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <label>
+          <input matInput [formControl]="emailFormControl" placeholder="Email">
+        </label>
+        <mat-error *ngIf="emailFormControl.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Enter your password</mat-label>
+        <label>
+          <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" placeholder="Password">
+        </label>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+          Password must have at least 6 letters
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <p>Forgot Password</p>
+    </div>
+    <div class="text-center mt-1">
+      <button mat-raised-button color="primary"
+              (click)="login()"
+              [disabled]="passwordFormControl.invalid || emailFormControl.invalid">
+        Log in
+      </button>
+    </div>
+    <p class="new">I’m new here</p>
+    <div class="text-center mt-1">
+      <button mat-raised-button color="primary" routerLink="/registration">Register
+      </button>
+    </div>
+  </form>
+</div>
+
+

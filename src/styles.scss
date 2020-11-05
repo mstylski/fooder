@@ -1,4 +1,189 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/scss/bootstrap';
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #cbcbcb;
+}
+
+@import 'assets/styles/variables';
+@import 'mixins';
+
+$sidenav-width: 320px;
+$top-gap: 0;
+
+:host {
+  position: relative;
+}
+
+mat-sidenav-container {
+  background: #101F4C !important;
+}
+
+.bt-sidenav {
+  .sidenav-container {
+    @include md-up {
+      mat-sidenav {
+        width: $sidenav-width;
+        visibility: visible !important;
+      }
+
+      mat-sidenav.opened {
+        margin-right: 0;
+      }
+
+      .sidenav-header {
+        width: $sidenav-width;
+      }
+    }
+  }
+
+  .sidenav {
+    position: fixed;
+    box-shadow: 0 0 2px 0 rgba(red, 0.24), -2px 0 2px 0 rgba(red, 0.24) !important;
+    width: 100%;
+    background: $white;
+  }
+
+  .sidenav-header {
+    background: $white;
+    color: #101F4C;
+    box-shadow: 1px 0 1px 0 rgba(red, 0.5), 1px 1px 4px 0 rgba(red, 0.12);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    font-weight: bold;
+    height: $top-gap;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  .opened {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    height: 100%;
+
+    .logo {
+      justify-content: center;
+    }
+  }
+
+  .list {
+    margin-top: $top-gap;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: $white;
+    padding-bottom: 20px;
+    height: 64px;
+
+    img {
+      width: 200px;
+    }
+  }
+
+  .bt-nav-link {
+    color: #101F4C;
+    opacity: 0.9;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 22px;
+    height: 56px;
+    font-size: 14px;
+    border-left: 4px solid transparent;
+    border-bottom: 1px solid #20515a;
+    display: flex;
+
+    .nav-link-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 7px 0;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    span {
+      padding-left: 12px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      color: #101F4C;
+    }
+
+    &:hover {
+      background: rgba(237,237,245,0.7);
+    }
+
+    &:last-child {
+      .link-content {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.subnav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  bottom: 0;
+  background: $white;
+  height: 64px;
+  border-top: 1px solid #20515a;
+
+  img {
+    height: 36px;
+  }
+}
+
+.logo-with-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.green-snackbar {
+  background: $mat-green;
+}
+
+.ql-container {
+  height: 300px !important;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+ .mat-radio-label {
+   margin-right: 20px;
+ }
+
+.mat-dialog-actions {
+  align-items: stretch;
+}
+
+.mat-card-header {
+text-align: center;
+  justify-content: center;
+}

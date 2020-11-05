@@ -1,0 +1,5 @@
+<app-header (menuToggled)="sidebar.toggle()"  [user]="user$ | async"></app-header>
+<app-sidebar #sidebar></app-sidebar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

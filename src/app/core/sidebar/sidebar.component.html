@@ -1,0 +1,58 @@
+<div class="bt-sidenav">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      tour="hamburger-btn-medium"
+      #sidenav
+      class="sidenav"
+      mode="over"
+      [class.opened]="sidenav.opened"
+      [autoFocus]="false"
+      position="end">
+      <header class="header">
+        <mat-icon (click)="sidenav.toggle()">close</mat-icon>
+      </header>
+      <ul class="list">
+        <li
+          class="bt-nav-link"
+          routerLink="/recipe--of-other-cooks"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+            <span class="material-icons">list</span>
+            <span>Recipes of other Cooks</span>
+          </div>
+        </li>
+        <li
+          class="bt-nav-link"
+          routerLink="/dashboard/recipes"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+            <span class="material-icons">reorder</span>
+            <span>Recipe List</span>
+          </div>
+        </li>
+        <li
+          class="bt-nav-link"
+          routerLink="/dashboard/user"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+<span class="material-icons">account_circle</span>
+            <span>User Profile</span>
+          </div>
+        </li>
+
+        <li *ngIf="user$ | async" class="bt-nav-link" (click)="logout()">
+          <div class="nav-link-content">
+            <span class="material-icons">login</span>
+            <span>Logout</span>
+          </div>
+        </li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <ng-content select="[container]"></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

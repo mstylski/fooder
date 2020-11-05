@@ -1,0 +1,31 @@
+@import 'src/assets/styles/variables';
+
+
+h3 {
+  color: $blue-500;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: $mat-green;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  color: $white;
+  cursor: pointer;
+}

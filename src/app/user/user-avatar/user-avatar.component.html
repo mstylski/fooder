@@ -1,0 +1,16 @@
+<div class="d-flex">
+  <div *ngIf="!(user$ | async)?.avatarUrl">
+    <label for="upload">
+      <input class="inputTypeFile"
+             type="file"
+             name="avatarImage"
+             (change)="onAvatarImageSelect($event)"
+             id="upload">
+      <strong>Upload your avatar here</strong>
+    </label>
+  </div>
+  <div class="user-photo" *ngIf="(user$ | async)?.avatarUrl">
+    <img class="img-fluid" [src]="(user$ | async)?.avatarUrl" alt="avatar">
+    <button class="mt-2 mb-2" mat-raised-button color="warn" (click)="deleteAvatar()">Delete avatar</button>
+  </div>
+</div>

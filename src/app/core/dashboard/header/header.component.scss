@@ -1,0 +1,29 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: cadetblue;
+  align-items: center;
+  height: 80px;
+  color: wheat;
+}
+
+.img-fluid {
+  height: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.mat-slide-toggle {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}

@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.no-recipes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-icons {
+  font-size: 200px;
+}
+
+.tabs {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.search {
+  height: 39px;
+  width: 140px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.call-to-action-buttons {
+  display: flex;
+  justify-content: space-between;
+}

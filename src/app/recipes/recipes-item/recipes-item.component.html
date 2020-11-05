@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <div class="title"></div>
+    <mat-card-title> {{ recipe.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="kind">Kind: {{ recipe.kind }}</p>
+    <img [src]="recipe.images[0]?.url" class="img-fluid">
+  </mat-card-content>
+  <mat-card-actions class="d-flex justify-content-end">
+    <button mat-raised-button color="warn" (click)="deleteRecipe()"><i class="fas fa-trash"></i></button>
+    <button mat-raised-button color="primary" (click)="editRecipe()"><i class="fas fa-edit"></i></button>
+    <button mat-raised-button color="primary" routerLink="{{recipe.id}}"><i class="fas fa-info-circle"></i></button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,22 @@
+@import "src/assets/styles/variables.scss";
+
+:host {
+  display: flex;
+  background: $navy-brand;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-container {
+  width: 300px;
+  background: white;
+  border-radius: 4px;
+  padding: 30px;
+  text-align: center;
+}
+
+.new {
+
+padding-top: 25px;
+}
