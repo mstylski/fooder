@@ -12,6 +12,7 @@ export interface User {
   gender: Gender;
   dateOfBirth: string;
   avatarUrl: string;
+  loggedAt: string;
 }
 
 export interface UserResponse {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';

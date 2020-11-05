@@ -1,6 +1,7 @@
 <h2> {{ recipe.title }}</h2>
 <hr>
 <div class="row">
+  <div class="card-text" [innerHTML]="recipe.formula"></div>
   <div *ngFor="let image of recipe.images" class="col-sm-4">
     <img [src]="image.url" class="img-fluid images">
     <div>
@@ -13,8 +14,7 @@
     </div>
   </div>
 </div>
-<div class="card-text" [innerHTML]="recipe.formula"></div>
-<div class="back-button" routerLink="../">
+<div class="back-button mt-2 mb-2" routerLink="../">
   <button mat-raised-button color="primary">← Back to recipe list</button>
 </div>
 

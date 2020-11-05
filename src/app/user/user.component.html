@@ -1,6 +1,9 @@
 <div class="card">
   <div class="card-body">
-    <h1>User Profile</h1>
+    <div class="d-flex justify-content-between">
+      <h1>User Profile</h1>
+      <p>Last logged: {{ (user$ | async)?.loggedAt | date:'HH:mm | dd/MM/yyyy' }}</p>
+    </div>
     <app-user-avatar></app-user-avatar>
     <app-user-form [user]="user$ | async" (saved)="saveChanges($event)"></app-user-form>
   </div>

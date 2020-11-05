@@ -2,13 +2,6 @@
   display: block;
 }
 
-.number {
-  color: white;
-  background-color: #20515a;
-  border-radius: 10px;
-  padding: 5px;
-}
-
 .spinner-container {
   display: flex;
   justify-content: center;
@@ -45,7 +38,13 @@
 }
 
 .search {
-  height: 70px;
-  width: 150px;
+  height: 39px;
+  width: 140px;
+  background-color: white;
+  border-radius: 4px;
 }
 
+.call-to-action-buttons {
+  display: flex;
+  justify-content: space-between;
+}

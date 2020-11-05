@@ -5,6 +5,7 @@ export enum Kind {
   SOUP = 'soup',
 }
 
+
 export interface RecipeImage {
   id: number;
   recipeId: number;
