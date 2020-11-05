@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -22,6 +22,7 @@ const routes: Routes = [
     children: [{ path: 'recipes', component: RecipesComponent },
       { path: 'recipes/:id', component: RecipeDetailsComponent , resolve: {recipe: RecipeResolveService}},
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+      { path: 'cooks', loadChildren: () => import('./cooks-module/cooks.module').then(m => m.CooksModule) },
     ]
   },
 ];

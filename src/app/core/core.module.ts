@@ -6,10 +6,12 @@ import { SharedModule } from '../shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [DashboardComponent, SidebarComponent, HeaderComponent],
   exports: [
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     SharedModule

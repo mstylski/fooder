@@ -77,13 +77,13 @@ export class AuthService {
     }
 
 
-  private getUserFromDecodedToken(): User | null {
-    const token = this.getTokenFromLocalstorage();
-    if (token) {
-      return jwt_decode(token).user;
-    }
-    return null;
-  }
+  // private getUserFromDecodedToken(): User | null {
+  //   const token = this.getTokenFromLocalstorage();
+  //   if (token) {
+  //     return jwt_decode(token).user;
+  //   }
+  //   return null;
+  // }
 
   getMe() {
     return this.http.get<User>(`${environment.apiUrl}/auth/me`);

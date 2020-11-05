@@ -1,3 +1,4 @@
+import { RecipeResponse } from './recipe.model';
 
 export interface User {
   email: string;
@@ -13,6 +14,8 @@ export interface User {
   dateOfBirth: string;
   avatarUrl: string;
   loggedAt: string;
+  numberOfRecipes?: number;
+  recipes?: RecipeResponse[];
 }
 
 export interface UserResponse {
