@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
+import { UserService } from '../../user/user.service';
+import { UserResponse } from '../../shared/models/user.model';
 
 export interface PeriodicElement {
   name: string;
@@ -9,6 +11,7 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
+
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 1000,
@@ -28,8 +31,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
   ],
 })
 export class CooksComponent implements OnInit {
-  displayedColumns: string[] = ['avatar', 'name', 'surname', 'city', 'diet', 'numberOfRecipes', 'lastLogged', 'showProfile'];
+  displayedColumns: string[] = ['avatar', 'name', 'surname', 'city',
+    'diet', 'numberOfRecipes', 'lastLogged', 'showProfile', 'showRecipes'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  cooks: UserResponse[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -41,8 +46,13 @@ export class CooksComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
+  getCooks() {
+    this.userService.getCooks().subscribe(cooks => {
+      this.cooks = cooks;
+    });
+  }
 
 }

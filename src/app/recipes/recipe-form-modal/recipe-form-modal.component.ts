@@ -20,7 +20,7 @@ export class RecipeFormModalComponent implements OnInit {
   modelForm: FormGroup;
   readonly kind = Kind;
   createdRecipeId: string;
-
+  isShow = false;
 
   constructor(private formBuilder: FormBuilder,
               private recipeService: RecipeService,
@@ -37,11 +37,13 @@ export class RecipeFormModalComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+
   }
 
   addRecipe() {
     this.recipeService.addRecipe(this.modelForm.value).subscribe((recipe) => {
       this.createdRecipeId = recipe.id;
+      this.isShow = !this.isShow;
       this.snackBar.open('Recipe has been added successfully!', null, {
         panelClass: ['green-snackbar']
       });
