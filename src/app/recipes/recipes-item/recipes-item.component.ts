@@ -8,10 +8,10 @@ import { RecipeResponse } from '../../shared/models/recipe.model';
   styleUrls: ['./recipes-item.component.scss']
 })
 export class RecipesItemComponent {
-
   @Input() recipe: RecipeResponse;
   @Output() deleted = new EventEmitter<RecipeResponse>();
   @Output() edited = new EventEmitter<RecipeResponse>();
+  numberOfLikes = 0;
 
   constructor() {
   }
@@ -23,6 +23,11 @@ export class RecipesItemComponent {
   public editRecipe() {
     this.edited.emit(this.recipe);
   }
+
+  likeButton() {
+    this.numberOfLikes++;
+  }
+
 }
 
 

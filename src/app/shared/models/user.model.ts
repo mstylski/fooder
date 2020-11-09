@@ -23,6 +23,14 @@ export interface UserResponse {
   token: string;
 }
 
+export interface CooksResponse {
+  page: number;
+  limit: number;
+  numberOfUsers: number;
+  cooks: User[];
+  numberOfRecipes: number;
+}
+
 
 export interface UpdateProfileHttpPayload {
   firstName: string;
