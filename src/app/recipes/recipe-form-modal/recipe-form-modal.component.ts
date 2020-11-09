@@ -7,6 +7,7 @@ import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { environment } from '../../../environments/environment';
+import { NotificationService } from '../../shared/notification.service';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class RecipeFormModalComponent implements OnInit {
               private recipeService: RecipeService,
               private httpClient: HttpClient,
               private authService: AuthService,
-              private snackBar: MatSnackBar,
+              private notificationService: NotificationService,
               public dialogRef: MatDialogRef<RecipeFormModalComponent>,
               @Optional() @Inject(MAT_DIALOG_DATA) data: { recipe: RecipeResponse }) {
     if (data) {
@@ -44,9 +45,7 @@ export class RecipeFormModalComponent implements OnInit {
     this.recipeService.addRecipe(this.modelForm.value).subscribe((recipe) => {
       this.createdRecipeId = recipe.id;
       this.isShow = !this.isShow;
-      this.snackBar.open('Recipe has been added successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Recipe has been added successfully!');
     });
   }
 
@@ -58,9 +57,7 @@ export class RecipeFormModalComponent implements OnInit {
     this.httpClient.post<any>(`${ environment.apiUrl }/file-upload/recipes/` + recipeId, formData).subscribe(() => {
       this.recipeService.getRecipe(recipeId).subscribe(recipe => this.recipe = recipe);
       this.dialogRef.close(true);
-      this.snackBar.open('Image has been added successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Image has been added successfully!');
     });
   }
 
@@ -68,9 +65,7 @@ export class RecipeFormModalComponent implements OnInit {
     console.log(this.recipe);
     this.recipeService.editRecipe(this.modelForm.value, this.recipe.id).subscribe(() => {
       this.dialogRef.close(true);
-      this.snackBar.open('Recipe has been updated successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Recipe has been updated successfully!');
     });
   }
 

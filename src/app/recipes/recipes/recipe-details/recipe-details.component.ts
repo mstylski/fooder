@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RecipeResponse } from '../../../shared/models/recipe.model';
 import { RecipeService } from '../../recipe.service';
+import { NotificationService } from '../../../shared/notification.service';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class RecipeDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private httpClient: HttpClient,
-              private snackBar: MatSnackBar,
-              private recipeService: RecipeService) {
+              private recipeService: RecipeService,
+  private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -30,9 +31,7 @@ export class RecipeDetailsComponent implements OnInit {
 
   deleteImage(imageId) {
     return this.httpClient.delete<any>(`${ environment.apiUrl }/file-upload/recipes/` + imageId).subscribe(() => {
-      this.snackBar.open('Image has been deleted successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Image has been deleted successfully!');
       this.recipeService.getRecipe(this.recipe.id).subscribe(recipe => this.recipe = recipe);
     });
   }

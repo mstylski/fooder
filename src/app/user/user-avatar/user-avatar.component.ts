@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-user-avatar',
@@ -17,7 +17,7 @@ export class UserAvatarComponent implements OnInit {
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
-              private snackBar: MatSnackBar) {
+              private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -30,9 +30,7 @@ export class UserAvatarComponent implements OnInit {
       formData.append('files', files);
       this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(() => {
         this.authService.pushUser();
-        this.snackBar.open('Avatar has been added successfully!', null, {
-          panelClass: ['green-snackbar']
-        });
+        this.notificationService.success('Avatar has been added successfully!');
       });
     }
   }
@@ -40,9 +38,7 @@ export class UserAvatarComponent implements OnInit {
   deleteAvatar() {
     this.authService.deleteAvatar().subscribe(() => {
       this.authService.pushUser();
-      this.snackBar.open('Avatar has been deleted successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Avatar has been deleted successfully!');
     });
   }
 }

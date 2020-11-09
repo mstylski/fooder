@@ -13,6 +13,7 @@ export class RecipesItemComponent {
   @Output() edited = new EventEmitter<RecipeResponse>();
   numberOfLikes = 0;
 
+
   constructor() {
   }
 
@@ -27,7 +28,6 @@ export class RecipesItemComponent {
   likeButton() {
     this.numberOfLikes++;
   }
-
 }
 
 

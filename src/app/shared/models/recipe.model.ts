@@ -17,6 +17,7 @@ export interface RecipeHttpPayload {
   kind: Kind;
   formula: string;
   isVegan: boolean;
+  likesCounter: number;
 }
 
 export interface RecipeResponse {

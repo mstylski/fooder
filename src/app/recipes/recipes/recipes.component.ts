@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal.component';
 import { ConfirmationModalConfig, ConfirmationResult } from '../../shared/components/confirmation-modal/confirmation-modal-configs';
 import { PageEvent } from '@angular/material/paginator';
+import { NotificationService } from '../../shared/notification.service';
 
 export interface Tab {
   label: string;
@@ -40,7 +41,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   constructor(public dialog: MatDialog,
               private recipeService: RecipeService,
-              private snackBar: MatSnackBar) {
+              private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -79,9 +80,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
   deleteRecipe(value: RecipeResponse) {
     this.recipeService.deleteRecipe(value.id).subscribe(() => {
       this.getRecipes();
-      this.snackBar.open('Recipe has been deleted successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Recipe has been deleted successfully!');
     });
   }
 
