@@ -1,51 +1,67 @@
-<mat-form-field>
-  <input matInput (keyup)="search($event.target.value)" placeholder="Search by City...">
-</mat-form-field>
+<div class="cooks">
+  <mat-form-field>
+    <label>
+      <input matInput (keyup)="search($event.target.value)" placeholder="Search by City...">
+    </label>
+  </mat-form-field>
+<div>
+  <div class="mb-2 ml-5">
+    <strong>Number of Cooks: {{ cooks.numberOfUsers }}</strong>
+  </div>
+  <div class="ml-5">
+    <strong>Global number of Recipes: {{ sumOfRecipes }}</strong>
+  </div>
+</div>
+</div>
+
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table table [dataSource]="cooks?.cooks">
     <ng-container matColumnDef="avatar">
       <th mat-header-cell *matHeaderCellDef> Avatar</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.avatarUrl}}  </td>
+      <td mat-cell *matCellDef="let cook" ><img [src]="cook.avatarUrl" class="img-fluid"></td>
     </ng-container>
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.firstName}}  </td>
+      <td mat-cell *matCellDef="let cook"> {{cook.firstName}}  </td>
     </ng-container>
     <ng-container matColumnDef="surname">
       <th mat-header-cell *matHeaderCellDef> Surname</th>
-      <td mat-cell *matCellDef="let cooks"> {{ cooks.lastName }} </td>
+      <td mat-cell *matCellDef="let cook"> {{ cook.lastName }} </td>
     </ng-container>
     <ng-container matColumnDef="city">
       <th mat-header-cell *matHeaderCellDef>City</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.city}}
+      <td mat-cell *matCellDef="let cook"> {{cook.city}}
         <button mat-raised-button matTooltip="City, State, Country"></button>
       </td>
     </ng-container>
     <ng-container matColumnDef="diet">
       <th mat-header-cell *matHeaderCellDef> Diet</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.diet}} </td>
+      <td mat-cell *matCellDef="let cook"> {{cook.diet}} </td>
     </ng-container>
     <ng-container matColumnDef="numberOfRecipes">
       <th mat-header-cell *matHeaderCellDef> Number of Recipes</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.numberOfRecipes}} </td>
+      <td mat-cell *matCellDef="let cook"> {{cook.numberOfRecipes}} </td>
     </ng-container>
     <ng-container matColumnDef="lastLogged">
       <th mat-header-cell *matHeaderCellDef> Last logged</th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks.loggedAt}} </td>
+      <td mat-cell *matCellDef="let cook"> {{cook.loggedAt | date:'HH:mm  | dd/MM/yyyy'}} </td>
     </ng-container>
     <ng-container matColumnDef="showProfile">
       <th mat-header-cell *matHeaderCellDef> <span class="material-icons">person
 </span></th>
-      <td mat-cell *matCellDef="let cooks"> {{cooks}}
+      <td mat-cell *matCellDef="let cook"> {{cook}}
         <button mat-raised-button></button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 (page)="changePage($event)"
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="changePage($event)"
+    [length]="cooks.itemCount"
+    [pageIndex]="cooks.page"
+    [pageSize]="cooks.pageCount"
   ></mat-paginator>
 </div>
 

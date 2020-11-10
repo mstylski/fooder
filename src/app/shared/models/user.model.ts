@@ -25,10 +25,11 @@ export interface UserResponse {
 
 export interface CooksResponse {
   page: number;
-  limit: number;
+  pageCount: number;
   numberOfUsers: number;
   cooks: User[];
-  numberOfRecipes: number;
+  itemCount: number;
+  avatarUrl: string;
 }
 
 

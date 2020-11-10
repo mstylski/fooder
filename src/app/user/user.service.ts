@@ -14,8 +14,8 @@ export class UserService {
     return this.http.patch<UpdateProfileHttpPayload>(`${ environment.apiUrl }/auth/update_profile`, payload);
   }
 
-  getCooks(page, limit, city): Observable<CooksResponse[]> {
+  getCooks(page, limit, city): Observable<CooksResponse> {
     const params = { page, limit, city };
-    return this.http.get<CooksResponse[]>(`${ environment.apiUrl}/cooks`, { params });
+    return this.http.get<CooksResponse>(`${ environment.apiUrl}/cooks`, { params });
   }
 }
