@@ -3,9 +3,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
 import { UserService } from '../../user/user.service';
-import { CooksResponse } from '../../shared/models/user.model';
+import { CooksResponse, User } from '../../shared/models/user.model';
 import { BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { CooksRecipesComponent } from '../../cooks-recipes/cooks-recipes.component';
 
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
@@ -40,13 +42,12 @@ export class CooksComponent implements OnInit, OnDestroy {
   limit: number;
   city: string;
   sumOfRecipes;
-  numberOfRecipes;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   private readonly subscriptions = new Subscription();
 
-  constructor(private userService: UserService) {
-  }
+  constructor(private userService: UserService,
+              private bottomSheet: MatBottomSheet) {}
 
   ngOnInit() {
     const subscription = combineLatest([this.searchBar$, this.pagination$])
@@ -59,7 +60,6 @@ export class CooksComponent implements OnInit, OnDestroy {
       .subscribe(cooks => {
         this.cooks = cooks;
         this.sumOfRecipes = this.cooks.cooks.reduce((acc, cook) => acc + cook.recipes.length, 0);
-        this.numberOfRecipes = this.cooks.cooks.map((cook) => cook.numberOfRecipes);
       });
     this.subscriptions.add(subscription);
   }
@@ -74,5 +74,9 @@ export class CooksComponent implements OnInit, OnDestroy {
 
   search(query: string) {
     this.searchBar$.next(query);
+  }
+
+  showRecipe(cook: User) {
+    this.bottomSheet.open(CooksRecipesComponent, { data: cook });
   }
 }

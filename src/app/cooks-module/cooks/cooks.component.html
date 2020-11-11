@@ -6,7 +6,7 @@
   </mat-form-field>
 <div>
   <div class="mb-2 ml-5">
-    <strong>Number of Cooks: {{ cooks.numberOfUsers }}</strong>
+    <strong>Number of Cooks: {{ cooks?.numberOfUsers }}</strong>
   </div>
   <div class="ml-5">
     <strong>Global number of Recipes: {{ sumOfRecipes }}</strong>
@@ -14,7 +14,7 @@
 </div>
 </div>
 
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" *ngIf="cooks">
   <table mat-table table [dataSource]="cooks?.cooks">
     <ng-container matColumnDef="avatar">
       <th mat-header-cell *matHeaderCellDef> Avatar</th>
@@ -31,7 +31,7 @@
     <ng-container matColumnDef="city">
       <th mat-header-cell *matHeaderCellDef>City</th>
       <td mat-cell *matCellDef="let cook"> {{cook.city}}
-        <button mat-raised-button matTooltip="City, State, Country"></button>
+        <button mat-raised-button matTooltip="{{ cook.city }}, {{ cook.state }} {{ cook.country }}"></button>
       </td>
     </ng-container>
     <ng-container matColumnDef="diet">
@@ -40,7 +40,7 @@
     </ng-container>
     <ng-container matColumnDef="numberOfRecipes">
       <th mat-header-cell *matHeaderCellDef> Number of Recipes</th>
-      <td mat-cell *matCellDef="let cook"> {{cook.numberOfRecipes}} </td>
+      <td mat-cell *matCellDef="let cook"> {{ cook.recipes.length }} </td>
     </ng-container>
     <ng-container matColumnDef="lastLogged">
       <th mat-header-cell *matHeaderCellDef> Last logged</th>
@@ -49,12 +49,12 @@
     <ng-container matColumnDef="showProfile">
       <th mat-header-cell *matHeaderCellDef> <span class="material-icons">person
 </span></th>
-      <td mat-cell *matCellDef="let cook"> {{cook}}
-        <button mat-raised-button></button>
+      <td mat-cell *matCellDef="let cook">
+        <button mat-raised-button (click)="showRecipe(cook)">Show recipes</button>
       </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
@@ -64,4 +64,5 @@
     [pageSize]="cooks.pageCount"
   ></mat-paginator>
 </div>
+
 

@@ -35,7 +35,8 @@ import { RecipeService } from './recipes/recipe.service';
       multi: true,
     },
   ],
-  exports: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

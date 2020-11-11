@@ -13,7 +13,7 @@ import { QuillModule } from 'ngx-quill';
     RecipesItemComponent,
     RecipeFormModalComponent,
     RecipeDetailsComponent,
-    ],
+  ],
   imports: [
     SharedModule,
     QuillModule.forRoot({
@@ -30,6 +30,9 @@ import { QuillModule } from 'ngx-quill';
       }
     }),
   ],
+  exports: [
+    RecipesItemComponent
+  ]
 })
 
 export class RecipesModule {}

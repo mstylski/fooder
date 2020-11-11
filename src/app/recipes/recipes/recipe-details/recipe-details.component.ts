@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { RecipeResponse } from '../../../shared/models/recipe.model';
 import { RecipeService } from '../../recipe.service';
 import { NotificationService } from '../../../shared/notification.service';
@@ -22,7 +21,7 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private httpClient: HttpClient,
               private recipeService: RecipeService,
-  private notificationService: NotificationService) {
+              private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {

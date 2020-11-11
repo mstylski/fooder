@@ -8,7 +8,6 @@ import { RecipesComponent } from './recipes/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-details.component';
 import { RecipeResolveService } from './recipes/recipe-resolve.service';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +19,8 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
     children: [{ path: 'recipes', component: RecipesComponent },
-      { path: 'recipes/:id', component: RecipeDetailsComponent , resolve: {recipe: RecipeResolveService}},
+      { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
+      { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
       { path: 'cooks', loadChildren: () => import('./cooks-module/cooks.module').then(m => m.CooksModule) },
     ]
