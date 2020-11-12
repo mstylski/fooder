@@ -1,8 +1,9 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/scss/bootstrap';
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
+@import "src/assets/styles/variables";
 
 html, body {
   height: 100%;
@@ -11,7 +12,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #cbcbcb;
+  background: $light-grey;
 }
 
 @import 'assets/styles/variables';

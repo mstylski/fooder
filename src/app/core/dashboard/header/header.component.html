@@ -1,14 +1,14 @@
 <header class="header">
   <div class="logo-container">
     <a href="#">
-      <img class="img-fluid app-logo" src="/assets/images/efooder-logo.png" alt="efooder">
+      <img class="img-fluid app-logo" src="/assets/images/logo.png" alt="efooder">
     </a>
-    <p>Keep Recipes Organized!</p>
+    <p class="mt-2 pr-2">Keep Recipes Organized!</p>
   </div>
-<div>
+<div class="mt-5 mb-5">
   <span>Hello {{ user?.firstName }}</span>
   <span class="user-photo" *ngIf="(user$ | async)?.avatarUrl">
-    <img class="img-fluid" [src]="(user$ | async)?.avatarUrl" alt="avatar">
+    <img class="img-fluid avatar" [src]="(user$ | async)?.avatarUrl" alt="avatar">
 </span>
   <button mat-icon-button color="black" aria-label="icon button with a menu icon" (click)="menuToggled.emit()">
     <mat-icon>menu</mat-icon>

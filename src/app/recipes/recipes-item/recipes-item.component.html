@@ -4,14 +4,9 @@
     <mat-card-title> {{ recipe.title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p class="kind">Kind: {{ recipe.kind }}</p>
     <img [src]="recipe.images[0]?.url" class="img-fluid">
   </mat-card-content>
   <mat-card-actions class="d-flex justify-content-between">
-<div>
-  <button class="btn btn-success mr-2"
-          (click)="likeButton()"><span class="material-icons">thumb_up_alt</span> {{ numberOfLikes }}</button>
-</div>
 <div>
   <button mat-raised-button color="warn" (click)="deleteRecipe()"><i class="fas fa-trash"></i></button>
   <button mat-raised-button color="primary" (click)="editRecipe()"><i class="fas fa-edit"></i></button>
