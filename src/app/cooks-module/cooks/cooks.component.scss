@@ -1,3 +1,5 @@
+@import "src/assets/styles/variables";
+
 table {
   width: 100%;
 }
@@ -11,3 +13,12 @@ table {
   justify-content: space-between;
   align-items: center;
 }
+
+.border-row-male {
+  border-left: 4px solid $blue-100;
+}
+
+.border-row-female {
+  border-left: 4px solid $pink;
+}
+

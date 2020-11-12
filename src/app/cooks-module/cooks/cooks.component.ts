@@ -31,7 +31,7 @@ const ELEMENT_DATA: CooksResponse[] = [];
 
 
 export class CooksComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['avatar', 'name', 'surname', 'city',
+  displayedColumns: string[] = ['avatar', 'name', 'surname', 'gender', 'city',
     'diet', 'numberOfRecipes', 'lastLogged', 'showProfile'];
   dataSource = new MatTableDataSource<CooksResponse>(ELEMENT_DATA);
   cooks: CooksResponse;
@@ -47,7 +47,8 @@ export class CooksComponent implements OnInit, OnDestroy {
   private readonly subscriptions = new Subscription();
 
   constructor(private userService: UserService,
-              private bottomSheet: MatBottomSheet) {}
+              private bottomSheet: MatBottomSheet) {
+  }
 
   ngOnInit() {
     const subscription = combineLatest([this.searchBar$, this.pagination$])
@@ -70,6 +71,7 @@ export class CooksComponent implements OnInit, OnDestroy {
 
   changePage(event: PageEvent) {
     this.pagination$.next(event);
+    console.log(event);
   }
 
   search(query: string) {
@@ -77,6 +79,6 @@ export class CooksComponent implements OnInit, OnDestroy {
   }
 
   showRecipe(cook: User) {
-    this.bottomSheet.open(CooksRecipesComponent, { data: cook });
+    this.bottomSheet.open(CooksRecipesComponent, { data: cook, panelClass: 'bottom-sheet' });
   }
 }

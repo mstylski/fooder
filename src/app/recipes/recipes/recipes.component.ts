@@ -1,10 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
 import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
 import { RecipeFormModalComponent } from '../recipe-form-modal/recipe-form-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from '../recipe.service';
 import { filter, finalize } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal.component';
 import { ConfirmationModalConfig, ConfirmationResult } from '../../shared/components/confirmation-modal/confirmation-modal-configs';
@@ -28,6 +27,9 @@ export const defaultPageEvent: PageEvent = {
   styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
+  @Pipe({
+    name: 'dataFilter',
+  })
   asyncTabs: Observable<Tab[]>;
   recipes: RecipeResponse[] = [];
   recipesByKind: RecipeResponse[] = [];
@@ -38,6 +40,7 @@ export class RecipesComponent implements OnInit, OnDestroy {
   numberOfDessertRecipes: number;
   private readonly pagination$ = new BehaviorSubject<PageEvent>(defaultPageEvent);
   subscription = new Subscription();
+
 
   constructor(public dialog: MatDialog,
               private recipeService: RecipeService,
@@ -135,9 +138,8 @@ export class RecipesComponent implements OnInit, OnDestroy {
       this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.DESSERT);
     }
   }
-
   filterbyTitle(title) {
-    this.recipesByKind = this.recipes.filter(recipe => recipe.title.includes(title));
+    this.recipesByKind = this.recipes.filter(recipe => recipe.title.toLowerCase().includes(title.toLowerCase()));
   }
 
   private setCounters() {
