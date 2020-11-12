@@ -1,20 +1,12 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
+import { PageEvent } from '@angular/material/paginator';
 import { UserService } from '../../user/user.service';
 import { CooksResponse, User } from '../../shared/models/user.model';
 import { BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CooksRecipesComponent } from '../../cooks-recipes/cooks-recipes.component';
-
-
-export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
-  showDelay: 1000,
-  hideDelay: 1000,
-  touchendHideDelay: 1000,
-};
 
 
 const ELEMENT_DATA: CooksResponse[] = [];
@@ -24,9 +16,6 @@ const ELEMENT_DATA: CooksResponse[] = [];
   selector: 'app-cooks',
   templateUrl: './cooks.component.html',
   styleUrls: ['./cooks.component.scss'],
-  providers: [
-    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults }
-  ],
 })
 
 
@@ -41,9 +30,8 @@ export class CooksComponent implements OnInit, OnDestroy {
   page: number;
   limit: number;
   city: string;
-  sumOfRecipes;
+  sumOfRecipes: number;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   private readonly subscriptions = new Subscription();
 
   constructor(private userService: UserService,
@@ -51,6 +39,26 @@ export class CooksComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+this.fetchCooks();
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
+
+  changePage(event: PageEvent) {
+    this.pagination$.next(event);
+  }
+
+  search(query: string) {
+    this.searchBar$.next(query);
+  }
+
+  showRecipe(cook: User) {
+    this.bottomSheet.open(CooksRecipesComponent, { data: cook, panelClass: 'bottom-sheet' });
+  }
+
+  private fetchCooks() {
     const subscription = combineLatest([this.searchBar$, this.pagination$])
       .pipe(
         debounceTime(400),
@@ -60,25 +68,11 @@ export class CooksComponent implements OnInit, OnDestroy {
       )
       .subscribe(cooks => {
         this.cooks = cooks;
-        this.sumOfRecipes = this.cooks.cooks.reduce((acc, cook) => acc + cook.recipes.length, 0);
+        this.caluclateTotalNumberOfRecipes();
       });
     this.subscriptions.add(subscription);
   }
-
-  ngOnDestroy() {
-    this.subscriptions.unsubscribe();
-  }
-
-  changePage(event: PageEvent) {
-    this.pagination$.next(event);
-    console.log(event);
-  }
-
-  search(query: string) {
-    this.searchBar$.next(query);
-  }
-
-  showRecipe(cook: User) {
-    this.bottomSheet.open(CooksRecipesComponent, { data: cook, panelClass: 'bottom-sheet' });
+  private caluclateTotalNumberOfRecipes() {
+    this.sumOfRecipes = this.cooks.cooks.reduce((acc, cook) => acc + cook.recipes.length, 0);
   }
 }

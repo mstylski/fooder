@@ -23,7 +23,7 @@ export class CooksRecipesComponent implements OnInit {
   }
 
 
-  navigate(id)  {
+  navigate(id: string)  {
     this.bottomSheet.dismiss();
     this.router.navigate([`/dashboard/recipes/${id}`]);
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
@@ -11,6 +11,7 @@ import { NotificationService } from '../../shared/notification.service';
 })
 
 export class UserAvatarComponent implements OnInit {
+
   centered = false;
   SERVER_URL = `${ environment.apiUrl }/file-upload/avatars`;
   readonly user$ = this.authService.user$;

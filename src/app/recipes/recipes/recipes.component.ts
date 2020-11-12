@@ -27,9 +27,6 @@ export const defaultPageEvent: PageEvent = {
   styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
-  @Pipe({
-    name: 'dataFilter',
-  })
   asyncTabs: Observable<Tab[]>;
   recipes: RecipeResponse[] = [];
   recipesByKind: RecipeResponse[] = [];

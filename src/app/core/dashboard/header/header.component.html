@@ -7,6 +7,9 @@
   </div>
 <div>
   <span>Hello {{ user?.firstName }}</span>
+  <span class="user-photo" *ngIf="(user$ | async)?.avatarUrl">
+    <img class="img-fluid" [src]="(user$ | async)?.avatarUrl" alt="avatar">
+</span>
   <button mat-icon-button color="black" aria-label="icon button with a menu icon" (click)="menuToggled.emit()">
     <mat-icon>menu</mat-icon>
   </button>
