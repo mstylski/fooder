@@ -11,11 +11,13 @@ import { HttpHeadersInterceptor } from './auth/http-headers.interceptor';
 import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/recipe.service';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutMeComponent,
   ],
   imports: [
     BrowserModule,

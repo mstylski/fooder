@@ -62,7 +62,6 @@ export class RecipeFormModalComponent implements OnInit {
   }
 
   editRecipe() {
-    console.log(this.recipe);
     this.recipeService.editRecipe(this.modelForm.value, this.recipe.id).subscribe(() => {
       this.dialogRef.close(true);
       this.notificationService.success('Recipe has been updated successfully!');

@@ -42,7 +42,16 @@
             <span>User Profile</span>
           </div>
         </li>
-
+        <li
+          class="bt-nav-link"
+          routerLink="/dashboard/about-me"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+            <span class="material-icons">assignment_ind</span>
+            <span>About me</span>
+          </div>
+        </li>
         <li *ngIf="user$ | async" class="bt-nav-link" (click)="logout()">
           <div class="nav-link-content">
             <span class="material-icons">login</span>

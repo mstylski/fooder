@@ -7,6 +7,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { RecipesComponent } from './recipes/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-details.component';
 import { RecipeResolveService } from './recipes/recipe-resolve.service';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
     children: [{ path: 'recipes', component: RecipesComponent },
+      { path: 'about-me', component: AboutMeComponent},
       { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
