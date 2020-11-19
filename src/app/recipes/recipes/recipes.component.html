@@ -29,8 +29,7 @@
       <div class="col-sm-6 mb-3" *ngFor="let recipe of recipesByKind">
         <app-recipes-item [recipe]="recipe"
                           (deleted)="displayConfirmationModal($event)"
-                          (edited)="openEditRecipeDialog($event)"
-        ></app-recipes-item>
+                          (edited)="openEditRecipeDialog($event)"></app-recipes-item>
       </div>
     </div>
   </div>

@@ -22,3 +22,17 @@ table {
   border-left: 4px solid $pink;
 }
 
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+
+.cooks-cards {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PageEvent } from '@angular/material/paginator';
 import { UserService } from '../../user/user.service';
@@ -7,6 +7,7 @@ import { BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CooksRecipesComponent } from '../../cooks-recipes/cooks-recipes.component';
+import { ScreenService } from '../../shared/screen.service';
 
 
 const ELEMENT_DATA: CooksResponse[] = [];
@@ -31,15 +32,17 @@ export class CooksComponent implements OnInit, OnDestroy {
   limit: number;
   city: string;
   sumOfRecipes: number;
-
+  readonly isMobile$ = this.screenService.isMobile$;
   private readonly subscriptions = new Subscription();
 
   constructor(private userService: UserService,
-              private bottomSheet: MatBottomSheet) {
+              private bottomSheet: MatBottomSheet,
+              private screenService: ScreenService) {
+    this.isMobile$.subscribe(console.log);
   }
 
   ngOnInit() {
-this.fetchCooks();
+    this.fetchCooks();
   }
 
   ngOnDestroy() {
@@ -72,6 +75,7 @@ this.fetchCooks();
       });
     this.subscriptions.add(subscription);
   }
+
   private caluclateTotalNumberOfRecipes() {
     this.sumOfRecipes = this.cooks.cooks.reduce((acc, cook) => acc + cook.recipes.length, 0);
   }
