@@ -21,6 +21,12 @@ const ELEMENT_DATA: CooksResponse[] = [];
 
 
 export class CooksComponent implements OnInit, OnDestroy {
+
+  constructor(private userService: UserService,
+              private bottomSheet: MatBottomSheet,
+              private screenService: ScreenService) {
+    this.isMobile$.subscribe(console.log);
+  }
   displayedColumns: string[] = ['avatar', 'name', 'surname', 'gender', 'city',
     'diet', 'numberOfRecipes', 'lastLogged', 'showProfile'];
   dataSource = new MatTableDataSource<CooksResponse>(ELEMENT_DATA);
@@ -34,12 +40,6 @@ export class CooksComponent implements OnInit, OnDestroy {
   sumOfRecipes: number;
   readonly isMobile$ = this.screenService.isMobile$;
   private readonly subscriptions = new Subscription();
-
-  constructor(private userService: UserService,
-              private bottomSheet: MatBottomSheet,
-              private screenService: ScreenService) {
-    this.isMobile$.subscribe(console.log);
-  }
 
   ngOnInit() {
     this.fetchCooks();
