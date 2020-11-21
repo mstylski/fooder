@@ -63,9 +63,9 @@
     <mat-paginator
       [pageSizeOptions]="[5, 10, 20]"
       (page)="changePage($event)"
-      [length]="cooks.itemCount"
+      [length]="cooks.numberOfUsers"
       [pageIndex]="cooks.page"
-      [pageSize]="cooks.pageCount"
+      [pageSize]="cooks.itemCount"
     ></mat-paginator>
   </div>
 </ng-template>
