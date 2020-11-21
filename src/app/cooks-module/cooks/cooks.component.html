@@ -1,7 +1,7 @@
 <div class="cooks">
   <mat-form-field>
     <label>
-      <input matInput (keyup)="search($event.target.value)" placeholder="Search by City...">
+      <input matInput #input (keyup)="filterbyCity(input.value)" placeholder="Search by City...">
     </label>
   </mat-form-field>
   <div>

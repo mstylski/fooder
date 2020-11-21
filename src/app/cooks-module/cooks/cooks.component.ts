@@ -76,6 +76,10 @@ export class CooksComponent implements OnInit, OnDestroy {
     this.subscriptions.add(subscription);
   }
 
+  filterbyCity(city) {
+    this.cooks.cooks.filter(cook => cook.city.toLowerCase().includes(city.toLowerCase()));
+  }
+
   private caluclateTotalNumberOfRecipes() {
     this.sumOfRecipes = this.cooks.cooks.reduce((acc, cook) => acc + cook.recipes.length, 0);
   }
