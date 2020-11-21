@@ -29,6 +29,17 @@
 </div>
 <div mat-dialog-actions class="d-flex justify-content-between">
   <button mat-raised-button (click)="close()">Close</button>
+  <button mat-raised-button color="primary" *ngIf="recipe?.id || createdRecipeId">
+    <label class="d-flex align-items-center justify-content-between" for="upload">
+      <input class="input-type-file"
+             multiple
+             type="file"
+             name="recipeImage"
+             (change)="uploadImage($event)"
+             id="upload">
+      <span class="material-icons">publish</span>
+    </label>
+  </button>
   <button *ngIf="!recipe && !isShow"
           mat-raised-button color="primary"
           (click)="addRecipe()"
@@ -39,16 +50,5 @@
           mat-raised-button color="primary"
           (click)="editRecipe()"
   >Update
-  </button>
-  <button mat-raised-button color="primary" *ngIf="recipe?.id || createdRecipeId">
-    <label class="d-flex align-items-center justify-content-between" for="upload">
-      <input class="input-type-file"
-             multiple
-             type="file"
-             name="recipeImage"
-             (change)="uploadImage($event)"
-             id="upload">
-      <span class="material-icons">publish</span> Upload photo
-    </label>
   </button>
 </div>
