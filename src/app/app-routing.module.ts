@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './core/dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -7,7 +7,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { RecipesComponent } from './recipes/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-details.component';
 import { RecipeResolveService } from './recipes/recipe-resolve.service';
-
+import { AboutAuthorComponent } from './about-author/about-author.component';
 
 const routes: Routes = [
   {
@@ -19,9 +19,13 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
-    children: [{ path: 'recipes', component: RecipesComponent },
-      { path: 'recipes/:id', component: RecipeDetailsComponent , resolve: {recipe: RecipeResolveService}},
+    children: [
+      { path: 'recipes', component: RecipesComponent },
+      { path: 'about-author', component: AboutAuthorComponent},
+      { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
+      { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
+      { path: 'cooks', loadChildren: () => import('./cooks-module/cooks.module').then(m => m.CooksModule) },
     ]
   },
 ];

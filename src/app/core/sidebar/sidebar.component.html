@@ -14,22 +14,22 @@
       <ul class="list">
         <li
           class="bt-nav-link"
-          routerLink="/recipe--of-other-cooks"
-          routerLinkActive="active"
-          (click)="close()">
-          <div class="nav-link-content">
-            <span class="material-icons">list</span>
-            <span>Recipes of other Cooks</span>
-          </div>
-        </li>
-        <li
-          class="bt-nav-link"
           routerLink="/dashboard/recipes"
           routerLinkActive="active"
           (click)="close()">
           <div class="nav-link-content">
             <span class="material-icons">reorder</span>
-            <span>Recipe List</span>
+            <span>Your Recipes</span>
+          </div>
+        </li>
+        <li
+          class="bt-nav-link"
+          routerLink="/dashboard/cooks"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+            <span class="material-icons">list</span>
+            <span>Other Cooks</span>
           </div>
         </li>
         <li
@@ -38,11 +38,20 @@
           routerLinkActive="active"
           (click)="close()">
           <div class="nav-link-content">
-<span class="material-icons">account_circle</span>
+            <span class="material-icons">account_circle</span>
             <span>User Profile</span>
           </div>
         </li>
-
+        <li
+          class="bt-nav-link"
+          routerLink="/dashboard/about-author"
+          routerLinkActive="active"
+          (click)="close()">
+          <div class="nav-link-content">
+            <span class="material-icons">assignment_ind</span>
+            <span>About Author</span>
+          </div>
+        </li>
         <li *ngIf="user$ | async" class="bt-nav-link" (click)="logout()">
           <div class="nav-link-content">
             <span class="material-icons">login</span>

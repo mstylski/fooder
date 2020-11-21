@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../../shared/models/user.model';
-import { ThemePalette } from '@angular/material/core';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +8,10 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  @Input() user: User;
+  readonly user$ = this.authService.user$;
   @Output() menuToggled = new EventEmitter<void>();
 
-
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 }
 

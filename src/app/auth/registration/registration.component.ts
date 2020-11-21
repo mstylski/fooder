@@ -28,12 +28,13 @@ export class RegistrationComponent {
   }
 
   register() {
-    this.authService.register(this.emailFormControl.value,
+    this.authService.register(
+      this.emailFormControl.value,
       this.passwordFormControl.value,
       this.firstNameFormControl.value,
-      this.lastNameFormControl.value).subscribe(() => {
-        console.log('użytkownik zarejestrowany');
-      this.router.navigate(['/dashboard']);
-    });
+      this.lastNameFormControl.value)
+      .subscribe(() => {
+        this.router.navigate(['/dashboard']);
+     });
   }
 }

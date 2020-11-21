@@ -1,11 +1,14 @@
+@import "src/assets/styles/variables";
+@import "src/mixins";
+
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: cadetblue;
+  background-color: $blue-theme;
   align-items: center;
   height: 80px;
-  color: wheat;
+  color: white;
 }
 
 .img-fluid {
@@ -14,16 +17,21 @@
   margin-right: 20px;
 }
 
-
 .logo-container {
   display: flex;
   align-items: center;
 }
-
 
 .mat-slide-toggle {
   display: flex;
   align-content: center;
   align-items: center;
   height: 60px;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

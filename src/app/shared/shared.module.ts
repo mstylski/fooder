@@ -6,7 +6,6 @@ import { MaterialModule } from './material/material.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
-
 const Modules = [
   RouterModule,
   CommonModule,

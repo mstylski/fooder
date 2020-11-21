@@ -1,0 +1,39 @@
+@import "src/assets/styles/variables";
+
+table {
+  width: 100%;
+}
+
+.mat-elevation-z8 {
+  height: 150px;
+}
+
+.search-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.border-row-male {
+  border-left: 4px solid $blue-100;
+}
+
+.border-row-female {
+  border-left: 4px solid $pink;
+}
+
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+
+.cooks-cards {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+

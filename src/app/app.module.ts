@@ -11,11 +11,13 @@ import { HttpHeadersInterceptor } from './auth/http-headers.interceptor';
 import { MaterialModule } from './shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/recipe.service';
+import { AboutAuthorComponent } from './about-author/about-author.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutAuthorComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,6 @@ import { RecipeService } from './recipes/recipe.service';
       multi: true,
     },
   ],
-  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

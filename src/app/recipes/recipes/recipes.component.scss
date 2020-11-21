@@ -30,11 +30,8 @@
 
 .tabs {
   background-color: white;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-bottom: 15px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
 }
 
 .search {
@@ -47,4 +44,10 @@
 .call-to-action-buttons {
   display: flex;
   justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
 }

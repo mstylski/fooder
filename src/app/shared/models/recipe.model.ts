@@ -5,7 +5,6 @@ export enum Kind {
   SOUP = 'soup',
 }
 
-
 export interface RecipeImage {
   id: number;
   recipeId: number;
@@ -17,9 +16,10 @@ export interface RecipeHttpPayload {
   kind: Kind;
   formula: string;
   isVegan: boolean;
+  likesCounter: number;
 }
 
-export interface RecipeResponse {
+export interface Recipe {
   title: string;
   kind: Kind;
   formula: string;

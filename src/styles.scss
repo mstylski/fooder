@@ -1,8 +1,9 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/scss/bootstrap';
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.bubble.css';
 @import '~quill/dist/quill.snow.css';
+@import "src/assets/styles/variables";
 
 html, body {
   height: 100%;
@@ -11,7 +12,7 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #cbcbcb;
+  background: $light-grey;
 }
 
 @import 'assets/styles/variables';
@@ -80,6 +81,7 @@ mat-sidenav-container {
 
   .list {
     margin-top: $top-gap;
+    padding-left:  0;
   }
 
   .logo {
@@ -164,7 +166,11 @@ mat-sidenav-container {
 }
 
 .green-snackbar {
-  background: $mat-green;
+  background: $green;
+}
+
+.red-snackbar {
+  background: $red;
 }
 
 .ql-container {
@@ -186,4 +192,23 @@ mat-form-field {
 .mat-card-header {
 text-align: center;
   justify-content: center;
+}
+
+
+.bottom-sheet {
+  width: 400px;
+}
+
+.mat-card-actions .mat-button, .mat-card-actions .mat-raised-button, .mat-card-actions .mat-stroked-button {
+  margin: 0 2px!important;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding-left: 24px;
+  text-align: center;
+}
+
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: 24px;
+  text-align: center;
 }

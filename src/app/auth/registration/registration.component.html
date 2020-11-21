@@ -1,11 +1,11 @@
 <div class="register-container">
-  <img class="img-fluid app-logo" src="/assets/images/efooder-logo.png" routerLink="/">
-  <h3 class="text-center">Panel Rejestracji</h3>
-  <p class="mb-3">Zarejestruj się do Panelu Kucharza</p>
+  <img class="img-fluid app-logo" src="/assets/images/logo-black.png" routerLink="/">
+  <h3 class="text-center">Registration Panel</h3>
+  <p class="mb-3">Register to Cook Panel</p>
   <form>
     <div>
       <mat-form-field class="w-100">
-        <mat-label>Imię</mat-label>
+        <mat-label>Name</mat-label>
         <label>
           <input matInput [formControl]="firstNameFormControl" placeholder="FirstName">
         </label>
@@ -16,7 +16,7 @@
     </div>
     <div>
       <mat-form-field class="w-100">
-        <mat-label>Nazwisko</mat-label>
+        <mat-label>Surname</mat-label>
         <label>
           <input matInput [formControl]="lastNameFormControl" placeholder="LastName">
         </label>
@@ -56,8 +56,12 @@
     <div class="text-center mt-1">
       <button mat-raised-button color="primary"
               (click)="register()"
-              [disabled]="passwordFormControl.invalid || emailFormControl.invalid || lastNameFormControl.invalid || firstNameFormControl.invalid ">
-        Zarejestruj się
+              [disabled]="
+              passwordFormControl.invalid ||
+              emailFormControl.invalid ||
+              lastNameFormControl.invalid ||
+              firstNameFormControl.invalid ">
+        Register
       </button>
     </div>
   </form>

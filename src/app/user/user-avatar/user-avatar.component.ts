@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../../shared/notification.service';
 
 @Component({
   selector: 'app-user-avatar',
@@ -10,17 +10,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-avatar.component.scss']
 })
 
-export class UserAvatarComponent implements OnInit {
-  centered = false;
-  SERVER_URL = `${ environment.apiUrl }/file-upload/avatars`;
+export class UserAvatarComponent {
   readonly user$ = this.authService.user$;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
-              private snackBar: MatSnackBar) {
-  }
-
-  ngOnInit(): void {
+              private notificationService: NotificationService) {
   }
 
   onAvatarImageSelect(event) {
@@ -28,11 +23,9 @@ export class UserAvatarComponent implements OnInit {
       const files = event.target.files[0];
       const formData = new FormData();
       formData.append('files', files);
-      this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(() => {
+      this.httpClient.post<File>(`${ environment.apiUrl }/file-upload/avatars`, formData).subscribe(() => {
         this.authService.pushUser();
-        this.snackBar.open('Avatar has been added successfully!', null, {
-          panelClass: ['green-snackbar']
-        });
+        this.notificationService.success('Avatar has been added successfully!');
       });
     }
   }
@@ -40,9 +33,7 @@ export class UserAvatarComponent implements OnInit {
   deleteAvatar() {
     this.authService.deleteAvatar().subscribe(() => {
       this.authService.pushUser();
-      this.snackBar.open('Avatar has been deleted successfully!', null, {
-        panelClass: ['green-snackbar']
-      });
+      this.notificationService.success('Avatar has been deleted successfully!');
     });
   }
 }
