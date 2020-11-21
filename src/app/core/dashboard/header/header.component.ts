@@ -9,9 +9,7 @@ import { AuthService } from '../../../auth/auth.service';
 })
 export class HeaderComponent {
   readonly user$ = this.authService.user$;
-  @Input() user: User;
   @Output() menuToggled = new EventEmitter<void>();
-
 
   constructor(private authService: AuthService) {
   }

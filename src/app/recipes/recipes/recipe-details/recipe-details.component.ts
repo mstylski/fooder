@@ -2,21 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { RecipeResponse } from '../../../shared/models/recipe.model';
+import { Recipe } from '../../../shared/models/recipe.model';
 import { RecipeService } from '../../recipe.service';
 import { NotificationService } from '../../../shared/notification.service';
-
 
 @Component({
   selector: 'app-receipt-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss']
 })
-
-
 export class RecipeDetailsComponent implements OnInit {
-  recipe: RecipeResponse;
-
+  recipe: Recipe;
 
   constructor(private route: ActivatedRoute,
               private httpClient: HttpClient,
@@ -24,7 +20,7 @@ export class RecipeDetailsComponent implements OnInit {
               private notificationService: NotificationService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.data.subscribe((data) => this.recipe = data.recipe);
   }
 

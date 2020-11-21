@@ -1,25 +1,13 @@
-import { Component, OnDestroy, OnInit, Pipe } from '@angular/core';
-import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Kind, Recipe } from '../../shared/models/recipe.model';
 import { RecipeFormModalComponent } from '../recipe-form-modal/recipe-form-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RecipeService } from '../recipe.service';
 import { filter, finalize } from 'rxjs/operators';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ConfirmationModalComponent } from '../../shared/components/confirmation-modal/confirmation-modal.component';
 import { ConfirmationModalConfig, ConfirmationResult } from '../../shared/components/confirmation-modal/confirmation-modal-configs';
-import { PageEvent } from '@angular/material/paginator';
 import { NotificationService } from '../../shared/notification.service';
-
-export interface Tab {
-  label: string;
-  content: string;
-}
-
-export const defaultPageEvent: PageEvent = {
-  pageIndex: 0,
-  pageSize: 10,
-  length: 0
-};
 
 @Component({
   selector: 'app-recipes',
@@ -27,33 +15,27 @@ export const defaultPageEvent: PageEvent = {
   styleUrls: ['recipes.component.scss']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
-  asyncTabs: Observable<Tab[]>;
-  recipes: RecipeResponse[] = [];
-  recipesByKind: RecipeResponse[] = [];
+  recipes: Recipe[] = [];
+  recipesByKind: Recipe[] = [];
   isLoading = false;
   numberOfMainRecipes: number;
   numberOfStarterRecipes: number;
   numberOfSoupRecipes: number;
   numberOfDessertRecipes: number;
-  private readonly pagination$ = new BehaviorSubject<PageEvent>(defaultPageEvent);
   subscription = new Subscription();
 
-
-  constructor(public dialog: MatDialog,
-              private recipeService: RecipeService,
-              private notificationService: NotificationService) {
+  constructor(
+    private dialog: MatDialog,
+    private recipeService: RecipeService,
+    private notificationService: NotificationService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getRecipes();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-  }
-
-  paginate(event: PageEvent) {
-    this.pagination$.next(event);
   }
 
   openDialog() {
@@ -77,15 +59,15 @@ export class RecipesComponent implements OnInit, OnDestroy {
     });
   }
 
-  deleteRecipe(value: RecipeResponse) {
+  deleteRecipe(value: Recipe) {
     this.recipeService.deleteRecipe(value.id).subscribe(() => {
       this.getRecipes();
       this.notificationService.success('Recipe has been deleted successfully!');
     });
   }
 
-  openEditRecipeDialog(recipe: RecipeResponse) {
-    const edited$ = this.dialog
+  openEditRecipeDialog(recipe: Recipe) {
+    this.dialog
       .open(RecipeFormModalComponent, {
         width: '700px',
         disableClose: true,
@@ -96,8 +78,8 @@ export class RecipesComponent implements OnInit, OnDestroy {
       .subscribe(() => this.getRecipes());
   }
 
-  displayConfirmationModal(recipe: RecipeResponse) {
-    const asked$ = this.dialog
+  displayConfirmationModal(recipe: Recipe) {
+    this.dialog
       .open(ConfirmationModalComponent, {
         panelClass: 'custom-mat-confirm-dialog',
         data: {
@@ -135,7 +117,8 @@ export class RecipesComponent implements OnInit, OnDestroy {
       this.recipesByKind = this.recipes.filter(recipe => recipe.kind === Kind.DESSERT);
     }
   }
-  filterbyTitle(title) {
+
+  filterByTitle(title: string) {
     this.recipesByKind = this.recipes.filter(recipe => recipe.title.toLowerCase().includes(title.toLowerCase()));
   }
 

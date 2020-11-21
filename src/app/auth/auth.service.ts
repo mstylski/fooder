@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { User, UserResponse } from '../shared/models/user.model';
+import { User, UserLoginResponse } from '../shared/models/user.model';
 import { filter, map } from 'rxjs/operators';
 import jwt_decode from 'jwt-decode';
 import { isAfter } from 'date-fns';
 import { environment } from '../../environments/environment';
+
 const tokenKey = 'FOODER_TOKEN_KEY';
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +21,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<UserResponse>(`${environment.apiUrl}/auth/login`, { email, password })
+    return this.http.post<UserLoginResponse>(`${ environment.apiUrl }/auth/login`, { email, password })
       .pipe(
         map((userResponse) => {
           this.user$.next(userResponse.user);
@@ -31,7 +32,7 @@ export class AuthService {
   }
 
   register(email: string, password: string, firstName: string, lastName: string) {
-    return this.http.post<UserResponse>(`${environment.apiUrl}/auth/register`, { email, password, firstName, lastName })
+    return this.http.post<UserLoginResponse>(`${ environment.apiUrl }/auth/register`, { email, password, firstName, lastName })
       .pipe(
         map((userResponse) => {
           this.user$.next(userResponse.user);
@@ -53,7 +54,6 @@ export class AuthService {
     }
 
     const decoded = jwt_decode(jwtToken) as { exp: number };
-    console.log('decoded', decoded);
     const isExpired = isAfter(new Date(), new Date(decoded.exp * 1000));
 
     return !isExpired;
@@ -71,25 +71,15 @@ export class AuthService {
     this.getMe()
       .pipe(filter(Boolean))
       .subscribe(user => {
-      console.log(user);
-      this.user$.next(user as User);
+        this.user$.next(user as User);
       });
-    }
-
-
-  // private getUserFromDecodedToken(): User | null {
-  //   const token = this.getTokenFromLocalstorage();
-  //   if (token) {
-  //     return jwt_decode(token).user;
-  //   }
-  //   return null;
-  // }
+  }
 
   getMe() {
-    return this.http.get<User>(`${environment.apiUrl}/auth/me`);
+    return this.http.get<User>(`${ environment.apiUrl }/auth/me`);
   }
 
   deleteAvatar() {
-    return this.http.delete<User>(`${environment.apiUrl}/file-upload/avatars`);
+    return this.http.delete<User>(`${ environment.apiUrl }/file-upload/avatars`);
   }
 }

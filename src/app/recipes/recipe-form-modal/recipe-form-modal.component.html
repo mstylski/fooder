@@ -8,7 +8,7 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field class="w-100" appearance="fill">
+      <mat-form-field class="w-100">
         <mat-label>Choose type of food</mat-label>
         <mat-select formControlName="kind">
           <mat-option [value]="kind.STARTER">starter</mat-option>
@@ -25,7 +25,6 @@
     <div class="formula">
       <quill-editor formControlName="formula" placeholder="formula...">Here put your Formula</quill-editor>
     </div>
-
   </form>
 </div>
 <div mat-dialog-actions class="d-flex justify-content-between">
@@ -41,17 +40,15 @@
           (click)="editRecipe()"
   >Update
   </button>
-  <button mat-raised-button color="primary">
-    <div *ngIf="recipe?.id || createdRecipeId">
-      <label for="upload">
-        <input class="inputTypeFile"
-               multiple
-               type="file"
-               name="recipeImage"
-               (change)="uploadImage($event)"
-               id="upload">
-        <span class="material-icons">publish</span> Upload photo
-      </label>
-    </div>
+  <button mat-raised-button color="primary" *ngIf="recipe?.id || createdRecipeId">
+    <label class="d-flex align-items-center justify-content-between" for="upload">
+      <input class="input-type-file"
+             multiple
+             type="file"
+             name="recipeImage"
+             (change)="uploadImage($event)"
+             id="upload">
+      <span class="material-icons">publish</span> Upload photo
+    </label>
   </button>
 </div>

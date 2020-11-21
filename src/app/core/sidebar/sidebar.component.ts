@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { MatSidenav } from '@angular/material/sidenav';
 
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -13,7 +12,8 @@ export class SidebarComponent {
   readonly user$ = this.authService.user$;
 
   constructor(
-    private readonly authService: AuthService) {}
+    private readonly authService: AuthService) {
+  }
 
   toggle() {
     this.sidenav.toggle();

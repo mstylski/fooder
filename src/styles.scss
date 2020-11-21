@@ -81,6 +81,7 @@ mat-sidenav-container {
 
   .list {
     margin-top: $top-gap;
+    padding-left:  0;
   }
 
   .logo {
@@ -165,7 +166,11 @@ mat-sidenav-container {
 }
 
 .green-snackbar {
-  background: $mat-green;
+  background: $green;
+}
+
+.red-snackbar {
+  background: $red;
 }
 
 .ql-container {

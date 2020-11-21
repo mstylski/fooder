@@ -1,6 +1,6 @@
 <div class="login-container">
   <img class="img-fluid app-logo" src="/assets/images/logo-black.png"
-       routerLink="/" alt="efooder">
+       routerLink="/" alt="efooder-logo">
   <p class="mb-3">Login to Cook Dashboard</p>
   <form>
     <div>
@@ -21,9 +21,11 @@
       <mat-form-field class="w-100">
         <mat-label>Enter your password</mat-label>
         <label>
-          <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" placeholder="Password">
+          <input matInput [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'"
+                 placeholder="Password">
         </label>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="passwordFormControl.hasError('minlength')">
@@ -33,7 +35,6 @@
           Password is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-      <p>Forgot Password</p>
     </div>
     <div class="text-center mt-1">
       <button mat-raised-button color="primary"

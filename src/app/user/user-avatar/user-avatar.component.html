@@ -1,7 +1,7 @@
 <div class="d-flex">
   <div *ngIf="!(user$ | async)?.avatarUrl">
     <label for="upload">
-      <input class="inputTypeFile"
+      <input class="input-type-file"
              type="file"
              name="avatarImage"
              (change)="onAvatarImageSelect($event)"

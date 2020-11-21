@@ -9,13 +9,13 @@ const mdBreakpoint = '768px';
   providedIn: 'root'
 })
 export class ScreenService {
-isMobile$: Observable<boolean> = this.breakpointObserver
-  .observe([`(max-width: ${mdBreakpoint})`])
-  .pipe(
-    map((state: BreakpointState) => state.matches),
-    shareReplay(1),
-  );
+  isMobile$: Observable<boolean> = this.breakpointObserver
+    .observe([`(max-width: ${ mdBreakpoint })`])
+    .pipe(
+      map((state: BreakpointState) => state.matches),
+      shareReplay(1),
+    );
 
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+  }
 }

@@ -10,10 +10,7 @@ import { NotificationService } from '../../shared/notification.service';
   styleUrls: ['./user-avatar.component.scss']
 })
 
-export class UserAvatarComponent implements OnInit {
-
-  centered = false;
-  SERVER_URL = `${ environment.apiUrl }/file-upload/avatars`;
+export class UserAvatarComponent {
   readonly user$ = this.authService.user$;
 
   constructor(private httpClient: HttpClient,
@@ -21,15 +18,12 @@ export class UserAvatarComponent implements OnInit {
               private notificationService: NotificationService) {
   }
 
-  ngOnInit(): void {
-  }
-
   onAvatarImageSelect(event) {
     if (event.target.files.length > 0) {
       const files = event.target.files[0];
       const formData = new FormData();
       formData.append('files', files);
-      this.httpClient.post<any>(this.SERVER_URL, formData).subscribe(() => {
+      this.httpClient.post<File>(`${ environment.apiUrl }/file-upload/avatars`, formData).subscribe(() => {
         this.authService.pushUser();
         this.notificationService.success('Avatar has been added successfully!');
       });

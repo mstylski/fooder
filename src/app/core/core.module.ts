@@ -4,9 +4,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './dashboard/header/header.component';
 import { SharedModule } from '../shared/shared.module';
 
-
-
-
 @NgModule({
   declarations: [DashboardComponent, SidebarComponent, HeaderComponent],
   exports: [
@@ -17,5 +14,4 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ]
 })
-export class CoreModule {
-}
+export class CoreModule {}

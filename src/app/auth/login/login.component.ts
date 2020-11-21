@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '../../shared/notification.service';
 
 
 @Component({
@@ -20,13 +21,13 @@ export class LoginComponent {
     Validators.minLength(6)
   ]);
 
-  constructor(public authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private notificationService: NotificationService) {
   }
 
   login() {
     this.authService.login(this.emailFormControl.value, this.passwordFormControl.value).subscribe(() => {
       this.router.navigate(['/dashboard/recipes']);
-    });
+    }, error => this.notificationService.error('Invalid password or login'));
   }
 }
 

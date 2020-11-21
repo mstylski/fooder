@@ -1,29 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RecipeResponse } from '../../shared/models/recipe.model';
-
+import { Recipe } from '../../shared/models/recipe.model';
 
 @Component({
   selector: 'app-recipes-item',
   templateUrl: './recipes-item.component.html',
-  styleUrls: ['./recipes-item.component.scss']
 })
 export class RecipesItemComponent {
-  @Input() recipe: RecipeResponse;
-  @Output() deleted = new EventEmitter<RecipeResponse>();
-  @Output() edited = new EventEmitter<RecipeResponse>();
+  @Input() recipe: Recipe;
+  @Output() deleted = new EventEmitter<Recipe>();
+  @Output() edited = new EventEmitter<Recipe>();
 
-
-  constructor() {
-  }
-
-  public deleteRecipe() {
+  deleteRecipe() {
     this.deleted.emit(this.recipe);
   }
 
-  public editRecipe() {
+  editRecipe() {
     this.edited.emit(this.recipe);
   }
-
 }
 
 

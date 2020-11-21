@@ -37,8 +37,6 @@ import { AboutAuthorComponent } from './about-author/about-author.component';
       multi: true,
     },
   ],
-  exports: [
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

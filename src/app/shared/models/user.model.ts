@@ -1,4 +1,4 @@
-import { RecipeResponse } from './recipe.model';
+import { Recipe } from './recipe.model';
 
 export interface User {
   email: string;
@@ -15,15 +15,15 @@ export interface User {
   avatarUrl: string;
   loggedAt: string;
   numberOfRecipes?: number;
-  recipes?: RecipeResponse[];
+  recipes?: Recipe[];
 }
 
-export interface UserResponse {
+export interface UserLoginResponse {
   user: User;
   token: string;
 }
 
-export interface CooksResponse {
+export interface CooksPage {
   page: number;
   pageCount: number;
   numberOfUsers: number;
@@ -31,7 +31,6 @@ export interface CooksResponse {
   itemCount: number;
   avatarUrl: string;
 }
-
 
 export interface UpdateProfileHttpPayload {
   firstName: string;
@@ -46,13 +45,13 @@ export interface UpdateProfileHttpPayload {
 }
 
 export enum Gender {
-  FEMALE= 'female',
+  FEMALE = 'female',
   MALE = 'male',
   OTHER = 'other'
 }
 
 export enum Diet {
-  KETOGENIC= 'ketogenic',
+  KETOGENIC = 'ketogenic',
   VEGAN = 'vegan',
   VEGETARIAN = 'vegetarian',
   PESCETARIAN = 'pescetarian',

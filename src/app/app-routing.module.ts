@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   {
     path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard],
-    children: [{ path: 'recipes', component: RecipesComponent },
+    children: [
+      { path: 'recipes', component: RecipesComponent },
       { path: 'about-author', component: AboutAuthorComponent},
       { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },

@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 import { CooksRoutingModule } from './cooks/cooks-routing.module';
 import { CooksRecipesComponent } from '../cooks-recipes/cooks-recipes.component';
 
-
 @NgModule({
   declarations: [CooksComponent, CooksRecipesComponent],
   entryComponents: [CooksRecipesComponent],
@@ -15,4 +14,4 @@ import { CooksRecipesComponent } from '../cooks-recipes/cooks-recipes.component'
     CooksRoutingModule,
   ]
 })
-export class CooksModule { }
+export class CooksModule {}

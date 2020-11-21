@@ -1,17 +1,14 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
 import { User } from '../shared/models/user.model';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-cooks-recipes',
   templateUrl: './cooks-recipes.component.html',
-  styleUrls: ['./cooks-recipes.component.scss']
 })
-export class CooksRecipesComponent implements OnInit {
+export class CooksRecipesComponent {
   user: User;
-
 
   constructor(@Optional() @Inject(MAT_BOTTOM_SHEET_DATA) public data: User,
               private router: Router,
@@ -19,12 +16,8 @@ export class CooksRecipesComponent implements OnInit {
     this.user = data;
   }
 
-  ngOnInit(): void {
-  }
-
-
-  navigate(id: string)  {
+  navigate(id: string) {
     this.bottomSheet.dismiss();
-    this.router.navigate([`/dashboard/recipes/${id}`]);
+    this.router.navigate([`/dashboard/recipes/${ id }`]);
   }
 }

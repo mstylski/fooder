@@ -1,23 +1,20 @@
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Kind, RecipeResponse } from '../../shared/models/recipe.model';
+import { Kind, Recipe } from '../../shared/models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { environment } from '../../../environments/environment';
 import { NotificationService } from '../../shared/notification.service';
-
 
 @Component({
   selector: 'app-recipe-form-modal',
   templateUrl: './recipe-form-modal.component.html',
   styleUrls: ['./recipe-form-modal.component.scss'],
 })
-
 export class RecipeFormModalComponent implements OnInit {
-  recipe: RecipeResponse;
+  recipe: Recipe;
   modelForm: FormGroup;
   readonly kind = Kind;
   createdRecipeId: string;
@@ -29,16 +26,14 @@ export class RecipeFormModalComponent implements OnInit {
               private authService: AuthService,
               private notificationService: NotificationService,
               public dialogRef: MatDialogRef<RecipeFormModalComponent>,
-              @Optional() @Inject(MAT_DIALOG_DATA) data: { recipe: RecipeResponse }) {
+              @Optional() @Inject(MAT_DIALOG_DATA) data: { recipe: Recipe }) {
     if (data) {
       this.recipe = data.recipe;
     }
   }
 
-
   ngOnInit() {
     this.buildForm();
-
   }
 
   addRecipe() {
@@ -54,7 +49,8 @@ export class RecipeFormModalComponent implements OnInit {
     const formData = new FormData();
     const recipeId = this.createdRecipeId || this.recipe.id;
     files.forEach(file => formData.append('files', file));
-    this.httpClient.post<any>(`${ environment.apiUrl }/file-upload/recipes/` + recipeId, formData).subscribe(() => {
+
+    this.httpClient.post<File>(`${ environment.apiUrl }/file-upload/recipes/` + recipeId, formData).subscribe(() => {
       this.recipeService.getRecipe(recipeId).subscribe(recipe => this.recipe = recipe);
       this.dialogRef.close(true);
       this.notificationService.success('Image has been added successfully!');
@@ -75,7 +71,9 @@ export class RecipeFormModalComponent implements OnInit {
       formula: '',
       isVegan: true,
     };
+
     const recipe = this.recipe || defaultValues;
+
     this.modelForm = this.formBuilder.group({
       title: [recipe.title, { validators: [Validators.required] }],
       kind: [recipe.kind, { validators: [Validators.required] }],

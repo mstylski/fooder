@@ -6,8 +6,6 @@ import { RecipeFormModalComponent } from './recipe-form-modal/recipe-form-modal.
 import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 import { QuillModule } from 'ngx-quill';
 
-
-
 @NgModule({
   declarations: [RecipesComponent,
     RecipesItemComponent,
@@ -35,4 +33,5 @@ import { QuillModule } from 'ngx-quill';
   ]
 })
 
-export class RecipesModule {}
+export class RecipesModule {
+}
