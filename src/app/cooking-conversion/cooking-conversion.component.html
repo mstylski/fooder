@@ -1,0 +1,33 @@
+<h2>Calculate your products</h2>
+<form [formGroup]="modelForm" *ngIf="modelForm">
+  <mat-form-field>
+    <mat-label>Products</mat-label>
+    <mat-select matInput formControlName="product">
+      <mat-option *ngFor="let product of products" [value]="product">{{ product.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select matInput formControlName="units">
+      <mat-option *ngFor="let product of products" [value]="product">
+        {{ product.units.grams }}
+        {{ product.units.dag }}
+        {{ product.units.glass }}
+        {{ product.units.liter }}
+        {{ product.units.spoon }}
+        {{ product.units.teaspoon }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <label>
+<textarea matInput formControlName="count">
+<mat-option></mat-option>
+</textarea>
+    </label>
+  </mat-form-field>
+</form>
+
+
+
+
+

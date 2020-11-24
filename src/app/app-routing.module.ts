@@ -8,6 +8,7 @@ import { RecipesComponent } from './recipes/recipes/recipes.component';
 import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-details.component';
 import { RecipeResolveService } from './recipes/recipe-resolve.service';
 import { AboutAuthorComponent } from './about-author/about-author.component';
+import { CookingConversionComponent } from './cooking-conversion/cooking-conversion.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     children: [
       { path: 'recipes', component: RecipesComponent },
       { path: 'about-author', component: AboutAuthorComponent},
+      { path: 'cooking-conversion', component: CookingConversionComponent},
       { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },

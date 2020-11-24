@@ -5,8 +5,6 @@ import { Router } from '@angular/router';
 import { RecipeService } from '../recipes/recipe.service';
 import { NotificationService } from '../shared/notification.service';
 import { Recipe, RecipeHttpPayload } from '../shared/models/recipe.model';
-import { environment } from '../../environments/environment';
-import { RecipesModule } from '../recipes/recipes.module';
 
 @Component({
   selector: 'app-cooks-recipes',
@@ -37,7 +35,7 @@ export class CooksRecipesComponent {
       formula: recipe.formula,
       isVegan: recipe.isVegan,
       kind: recipe.kind,
-  };
+    };
     this.recipeService.addRecipe(payload).subscribe();
     this.notificationService.success('Recipe has been copied to your list successfully!');
   }
