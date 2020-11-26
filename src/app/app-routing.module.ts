@@ -9,6 +9,7 @@ import { RecipeDetailsComponent } from './recipes/recipes/recipe-details/recipe-
 import { RecipeResolveService } from './recipes/recipe-resolve.service';
 import { AboutAuthorComponent } from './about-author/about-author.component';
 import { CookingConversionComponent } from './cooking-conversion/cooking-conversion.component';
+import { CalorieCalculatorComponent } from './calorie-calculator/calorie-calculator.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'recipes', component: RecipesComponent },
       { path: 'about-author', component: AboutAuthorComponent},
       { path: 'cooking-conversion', component: CookingConversionComponent},
+      { path: 'calorie-calculator', component: CalorieCalculatorComponent},
       { path: 'recipes/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'cooks/:id', component: RecipeDetailsComponent, resolve: { recipe: RecipeResolveService } },
       { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },

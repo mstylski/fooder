@@ -1,6 +1,7 @@
-<div class="d-md-flex justify-content-between">
-  <h4 class="mt-3 mb-5"><strong>Calculate your products</strong><span class="material-icons">calculate</span>
+<div class="d-md-flex justify-content-between conversion-data">
+  <h4 class="mt-3 mb-5 ml-4"><strong>Calculate your products</strong><span class="material-icons">calculate</span>
     <div>
+      <br>
       <form [formGroup]="modelForm" *ngIf="modelForm" class="calculation-data">
         <mat-form-field>
           <mat-label>Products</mat-label>
@@ -23,6 +24,7 @@
       <p>{{ modelForm?.value?.product?.units?.spoon * modelForm?.value?.count }}  spoons</p>
       <p>{{ modelForm?.value?.product?.units?.grams * modelForm?.value?.count }} grams</p>
       <p>{{ modelForm?.value?.product?.units?.dag * modelForm?.value?.count }} dags</p>
+      <p>{{ (modelForm?.value?.product?.units?.liter * modelForm?.value?.count).toFixed(1) }} liters</p>
     </div>
     <div class="mt-5">
       Extra conversion:

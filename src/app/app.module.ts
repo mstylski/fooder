@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/recipe.service';
 import { AboutAuthorComponent } from './about-author/about-author.component';
 import { CookingConversionComponent } from './cooking-conversion/cooking-conversion.component';
+import { CalorieCalculatorComponent } from './calorie-calculator/calorie-calculator.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CookingConversionComponent } from './cooking-conversion/cooking-convers
     AppComponent,
     AboutAuthorComponent,
     CookingConversionComponent,
+    CalorieCalculatorComponent,
   ],
   imports: [
     BrowserModule,

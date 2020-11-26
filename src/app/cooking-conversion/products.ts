@@ -1,13 +1,12 @@
 import { Product } from '../shared/models/product.model';
 
-
 export const products: Product[] = [
   {
     name: 'breadcrumbs',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 150,
       dag: 15,
       liter: 0.3,
@@ -17,8 +16,8 @@ export const products: Product[] = [
     name: 'granulated sugar',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 220,
       dag: 22,
       liter: 0.3,
@@ -28,8 +27,8 @@ export const products: Product[] = [
     name: 'icing sugar',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 160,
       dag: 16,
       liter: 0.3,
@@ -39,8 +38,8 @@ export const products: Product[] = [
     name: 'vanilla sugar',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 180,
       dag: 18,
       liter: 0.3,
@@ -50,8 +49,8 @@ export const products: Product[] = [
     name: 'cacao',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 110,
       dag: 11,
       liter: 0.3,
@@ -61,8 +60,8 @@ export const products: Product[] = [
     name: 'buckwheat groats',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 180,
       dag: 18,
       liter: 0.3,
@@ -72,8 +71,8 @@ export const products: Product[] = [
     name: 'barley groats',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 190,
       dag: 19,
       liter: 0.3,
@@ -83,8 +82,8 @@ export const products: Product[] = [
     name: 'couscous',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 155,
       dag: 15.5,
       liter: 0.3,
@@ -94,8 +93,8 @@ export const products: Product[] = [
     name: 'semoliona ',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 160,
       dag: 16,
       liter: 0.3,
@@ -105,8 +104,8 @@ export const products: Product[] = [
     name: 'ground coffee ',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 130,
       dag: 13,
       liter: 0.3,
@@ -116,8 +115,8 @@ export const products: Product[] = [
     name: 'poppy',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 165,
       dag: 16.5,
       liter: 0.3,
@@ -127,8 +126,8 @@ export const products: Product[] = [
     name: 'butter',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 230,
       dag: 23,
       liter: 0.3,
@@ -138,8 +137,8 @@ export const products: Product[] = [
     name: 'graham flour',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 160,
       dag: 16,
       liter: 0.3,
@@ -149,8 +148,8 @@ export const products: Product[] = [
     name: 'all purpose flour',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 170,
       dag: 17,
       liter: 0.3,
@@ -160,8 +159,8 @@ export const products: Product[] = [
     name: 'potato flour',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 250,
       dag: 25,
       liter: 0.3,
@@ -171,8 +170,8 @@ export const products: Product[] = [
     name: 'oil olives',
     units: {
       glass: 1,
-      teaspoon: 17,
-      spoon: 50,
+      teaspoon: 50,
+      spoon: 17,
       grams: 215,
       dag: 21.5,
       liter: 0.3,

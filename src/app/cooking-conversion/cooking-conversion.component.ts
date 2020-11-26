@@ -11,7 +11,6 @@ import { Count, Units } from '../shared/models/product.model';
 export class CookingConversionComponent implements OnInit {
   readonly products = products;
   readonly unit: Units;
-  units: string[] = ['glass', 'liter', 'grams', 'dag', 'teaspoon', 'spoon'];
   readonly count: Count;
 
   modelForm: FormGroup;
