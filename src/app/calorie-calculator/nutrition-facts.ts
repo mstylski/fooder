@@ -35,36 +35,36 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: 'Whole Milk 3.5% fat (1ml)',
-    totalCalories: 0.6,
-    totalKj: 3,
+    name: 'Whole Milk 3.5% fat (100ml)',
+    totalCalories: 62,
+    totalKj: 258,
     nutritionFacts: {
-      totalFat: 0.5,
-      totalFatPercentage: 0.8,
-      saturatedFat: 0.1,
-      polyunsaturatedFat: 0.1,
-      monounsaturatedFat: 0.1,
-      cholesterol: 2,
-      totalCholesterolPercentage: 0.5,
-      sodium: 6,
-      totalSodiumPercentage: 0.3,
-      totalCarbohydrate: 0.8,
-      totalCarbohydratePercentage: 0.3,
-      fiber: 0.1,
+      totalFat: 3.3,
+      totalFatPercentage: 5,
+      saturatedFat: 1.9,
+      polyunsaturatedFat: 0.2,
+      monounsaturatedFat: 0.8,
+      cholesterol: 10,
+      totalCholesterolPercentage: 3,
+      sodium: 41,
+      totalSodiumPercentage: 2,
+      totalCarbohydrate: 5.4,
+      totalCarbohydratePercentage: 2,
+      fiber: 0,
       totalFiberPercentage: 0,
-      sugars: 0.8,
-      protein: 0.5,
-      calcium: 17,
-      potassium: 22,
+      sugars: 5.4,
+      protein: 3.3,
+      calcium: 116,
+      potassium: 147,
       iron: 1,
-      vitA: 15,
+      vitA: 103,
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -94,10 +94,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -127,10 +127,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 20,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -160,10 +160,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 16,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -193,10 +193,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 16,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -226,10 +226,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 16,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -259,10 +259,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 3,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -292,10 +292,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 7,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -325,10 +325,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 28,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -358,10 +358,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 89,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -392,10 +392,10 @@ export const nutritionFacts: NutritionModel[] = [
       caffeine: 20,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -425,10 +425,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 1,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -458,10 +458,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 8,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -491,10 +491,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 310,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -524,10 +524,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -557,10 +557,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -590,10 +590,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 19,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -623,10 +623,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -657,10 +657,10 @@ export const nutritionFacts: NutritionModel[] = [
       alcohol: 13.8,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -690,10 +690,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -723,10 +723,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -757,10 +757,10 @@ export const nutritionFacts: NutritionModel[] = [
       alcohol: 15.8,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -791,10 +791,10 @@ export const nutritionFacts: NutritionModel[] = [
       alcohol: 15.6,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -824,10 +824,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -857,10 +857,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -891,10 +891,10 @@ export const nutritionFacts: NutritionModel[] = [
       caffeine: 32,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -924,10 +924,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 2,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -957,10 +957,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 3,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -991,10 +991,10 @@ export const nutritionFacts: NutritionModel[] = [
       caffeine: 127,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -1024,10 +1024,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 9,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -1057,10 +1057,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 3,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
   {
@@ -1090,10 +1090,10 @@ export const nutritionFacts: NutritionModel[] = [
       vitC: 2,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12.4,
+      running: 8.8,
+      cycling: 6.8,
+      walking: 3.6,
     }
   },
 ];
