@@ -2,43 +2,41 @@ import { NutritionModel } from '../shared/models/nutrition.model';
 
 export const nutritionFacts: NutritionModel[] = [
   {
-    name: 'Raw Peanuts (1g)',
-    quantity: 1,
-    totalCalories: 0.6,
-    totalKj: 3,
+    name: 'Raw Peanuts (100g)',
+    totalCalories: 566,
+    totalKj: 2370,
     nutritionFacts: {
-      totalFat: 0.1,
-      totalFatPercentage: 0.1,
-      saturatedFat: 0.08,
-      polyunsaturatedFat: 0.01,
-      monounsaturatedFat: 0.01,
-      cholesterol: 0.03,
-      totalCholesterolPercentage: 0.03,
-      sodium: 1.2,
-      totalSodiumPercentage: 0.01,
-      totalCarbohydrate: 0.5,
-      totalCarbohydratePercentage: 0.01,
-      fiber: 0,
-      totalFiberPercentage: 0,
-      sugars: 0.5,
-      protein: 0.3,
-      calcium: 1.6,
-      potassium: 1.5,
-      iron: 0.03,
-      vitA: 1,
+      totalFat: 49.2,
+      totalFatPercentage: 76,
+      saturatedFat: 6.8,
+      polyunsaturatedFat: 15.6,
+      monounsaturatedFat: 24.4,
+      cholesterol: 0,
+      totalCholesterolPercentage: 0,
+      sodium: 18,
+      totalSodiumPercentage: 1,
+      totalCarbohydrate: 16.1,
+      totalCarbohydratePercentage: 5,
+      fiber: 8.5,
+      totalFiberPercentage: 34,
+      sugars: 4,
+      protein: 25.8,
+      calcium: 92,
+      potassium: 705,
+      iron: 5,
+      vitA: 0,
       vitC: 0,
     },
     timeToBurn: {
-      swimming: 1,
-      running: 1.5,
-      cycling: 2,
-      walking: 4,
+      swimming: 12,
+      running: 8.7,
+      cycling: 6.5,
+      walking: 3.6,
     }
   },
   {
     name: 'Whole Milk 3.5% fat (1ml)',
-    quantity: 1,
-    totalCalories: 9,
+    totalCalories: 0.6,
     totalKj: 3,
     nutritionFacts: {
       totalFat: 0.5,
@@ -71,7 +69,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'White Bread (slice)',
-    quantity: 1,
     totalCalories: 79,
     totalKj: 332,
     nutritionFacts: {
@@ -105,7 +102,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Avocados (fruit)',
-    quantity: 1,
     totalCalories: 321,
     totalKj: 1344,
     nutritionFacts: {
@@ -139,7 +135,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Tomatoes (whole 2,5")',
-    quantity: 1,
     totalCalories: 22,
     totalKj: 93,
     nutritionFacts: {
@@ -173,7 +168,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Brown Rice (100g)',
-    quantity: 1,
     totalCalories: 111,
     totalKj: 464,
     nutritionFacts: {
@@ -207,7 +201,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Whole Wheat Pasta (100g)',
-    quantity: 1,
     totalCalories: 111,
     totalKj: 464,
     nutritionFacts: {
@@ -241,7 +234,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Potato French Fries (100g)',
-    quantity: 1,
     totalCalories: 314,
     totalKj: 1313,
     nutritionFacts: {
@@ -275,7 +267,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Potatoes (100g)',
-    quantity: 1,
     totalCalories: 86,
     totalKj: 359,
     nutritionFacts: {
@@ -309,7 +300,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Spinach (100g)',
-    quantity: 1,
     totalCalories: 23,
     totalKj: 96,
     nutritionFacts: {
@@ -343,7 +333,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Broccoli (100g)',
-    quantity: 1,
     totalCalories: 34,
     totalKj: 142,
     nutritionFacts: {
@@ -377,7 +366,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Milk Chocolate (100g)',
-    quantity: 1,
     totalCalories: 534,
     totalKj: 2236,
     nutritionFacts: {
@@ -412,7 +400,6 @@ export const nutritionFacts: NutritionModel[] = [
   },
   {
     name: 'Chicken Breast (100g)',
-    quantity: 1,
     totalCalories: 110,
     totalKj: 460,
     nutritionFacts: {
@@ -445,8 +432,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Apple (medium 3")',
-    quantity: 1,
+    name: 'Apple (medium 3")',
     totalCalories: 93,
     totalKj: 389,
     nutritionFacts: {
@@ -479,8 +465,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Red Sweet Pepper (whole 3,5")',
-    quantity: 1,
+    name: 'Red Sweet Pepper (whole 3,5")',
     totalCalories: 42,
     totalKj: 177,
     nutritionFacts: {
@@ -513,8 +498,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Old Country Style Muesli (100g)',
-    quantity: 1,
+    name: 'Old Country Style Muesli (100g)',
     totalCalories: 400,
     totalKj: 1674,
     nutritionFacts: {
@@ -547,8 +531,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Ground Beef (100g)',
-    quantity: 1,
+    name: 'Ground Beef (100g)',
     totalCalories: 152,
     totalKj: 636,
     nutritionFacts: {
@@ -581,8 +564,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Salted Plain Potato Chips (100g)',
-    quantity: 1,
+    name: 'Salted Plain Potato Chips (100g)',
     totalCalories: 546,
     totalKj: 2286,
     nutritionFacts: {
@@ -615,8 +597,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Yogurt O % (100g)',
-    quantity: 1,
+    name: 'Yogurt O % (100g)',
     totalCalories: 57,
     totalKj: 240,
     nutritionFacts: {
@@ -649,8 +630,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Beer Heineken 5 % alc. (500ml)',
-    quantity: 1,
+    name: 'Beer Heineken 5 % alc. (500ml)',
     totalCalories: 148,
     totalKj: 618,
     nutritionFacts: {
@@ -684,8 +664,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Pearled Barley (100g)',
-    quantity: 1,
+    name: 'Pearled Barley (100g)',
     totalCalories: 123,
     totalKj: 514,
     nutritionFacts: {
@@ -718,8 +697,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Buckwheat Groats (100g)',
-    quantity: 1,
+    name: 'Buckwheat Groats (100g)',
     totalCalories: 92,
     totalKj: 385,
     nutritionFacts: {
@@ -752,8 +730,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Vodka 40 % alc. (shot 50 ml)',
-    quantity: 1,
+    name: 'Vodka 40 % alc. (shot 50 ml)',
     totalCalories: 109,
     totalKj: 456,
     nutritionFacts: {
@@ -787,8 +764,7 @@ export const nutritionFacts: NutritionModel[] = [
     }
   },
   {
-    name: ' Pinot Noir Red Wine 10 % alc. (glass 150 ml)',
-    quantity: 1,
+    name: 'Pinot Noir Red Wine 10 % alc. (glass 150 ml)',
     totalCalories: 124,
     totalKj: 520,
     nutritionFacts: {
@@ -813,6 +789,305 @@ export const nutritionFacts: NutritionModel[] = [
       vitA: 0,
       vitC: 0,
       alcohol: 15.6,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Whole egg (1.8 oz)',
+    totalCalories: 77,
+    totalKj: 324,
+    nutritionFacts: {
+      totalFat: 5.3,
+      totalFatPercentage: 8,
+      saturatedFat: 1.6,
+      polyunsaturatedFat: 0.7,
+      monounsaturatedFat: 2,
+      cholesterol: 212,
+      totalCholesterolPercentage: 71,
+      sodium: 62,
+      totalSodiumPercentage: 3,
+      totalCarbohydrate: 0.6,
+      totalCarbohydratePercentage: 0.01,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 0.6,
+      protein: 6.3,
+      calcium: 25,
+      potassium: 63,
+      iron: 1,
+      vitA: 293,
+      vitC: 0,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Butter (pat 0.2 oz)',
+    totalCalories: 36,
+    totalKj: 150,
+    nutritionFacts: {
+      totalFat: 4.1,
+      totalFatPercentage: 6,
+      saturatedFat: 2.6,
+      polyunsaturatedFat: 0.2,
+      monounsaturatedFat: 1.1,
+      cholesterol: 11,
+      totalCholesterolPercentage: 4,
+      sodium: 1,
+      totalSodiumPercentage: 0.01,
+      totalCarbohydrate: 0.1,
+      totalCarbohydratePercentage: 0.0001,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 0.1,
+      protein: 0.1,
+      calcium: 1,
+      potassium: 1,
+      iron: 1,
+      vitA: 125,
+      vitC: 0,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Coca-Cola Classic (330 ml)',
+    totalCalories: 130,
+    totalKj: 545,
+    nutritionFacts: {
+      totalFat: 0,
+      totalFatPercentage: 0,
+      saturatedFat: 0,
+      polyunsaturatedFat: 0,
+      monounsaturatedFat: 0,
+      cholesterol: 0,
+      totalCholesterolPercentage: 0,
+      sodium: 42,
+      totalSodiumPercentage: 2,
+      totalCarbohydrate: 36.3,
+      totalCarbohydratePercentage: 12,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 36.3,
+      protein: 0,
+      calcium: 0,
+      potassium: 0,
+      iron: 0,
+      vitA: 0,
+      vitC: 0,
+      caffeine: 32,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Beetroots - boiled (whole 2")',
+    totalCalories: 22,
+    totalKj: 92,
+    nutritionFacts: {
+      totalFat: 0.1,
+      totalFatPercentage: 0.001,
+      saturatedFat: 0.1,
+      polyunsaturatedFat: 0.1,
+      monounsaturatedFat: 0.1,
+      cholesterol: 0,
+      totalCholesterolPercentage: 0,
+      sodium: 39,
+      totalSodiumPercentage: 2,
+      totalCarbohydrate: 5,
+      totalCarbohydratePercentage: 2,
+      fiber: 1,
+      totalFiberPercentage: 4,
+      sugars: 4,
+      protein: 0.8,
+      calcium: 8,
+      potassium: 153,
+      iron: 1,
+      vitA: 18,
+      vitC: 2,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Dried Plums (50g)',
+    totalCalories: 137,
+    totalKj: 575,
+    nutritionFacts: {
+      totalFat: 0,
+      totalFatPercentage: 0,
+      saturatedFat: 0,
+      polyunsaturatedFat: 0,
+      monounsaturatedFat: 0,
+      cholesterol: 0,
+      totalCholesterolPercentage: 0,
+      sodium: 6,
+      totalSodiumPercentage: 0.01,
+      totalCarbohydrate: 32.5,
+      totalCarbohydratePercentage: 11,
+      fiber: 2.5,
+      totalFiberPercentage: 10,
+      sugars: 16.3,
+      protein: 1.3,
+      calcium: 0,
+      potassium: 363,
+      iron: 1,
+      vitA: 625,
+      vitC: 3,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Caffe Latte - whole milk (250ml)',
+    totalCalories: 143,
+    totalKj: 599,
+    nutritionFacts: {
+      totalFat: 7.4,
+      totalFatPercentage: 11,
+      saturatedFat: 4.6,
+      polyunsaturatedFat: 0,
+      monounsaturatedFat: 0,
+      cholesterol: 32,
+      totalCholesterolPercentage: 11,
+      sodium: 110,
+      totalSodiumPercentage: 5,
+      totalCarbohydrate: 11.6,
+      totalCarbohydratePercentage: 4,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 10.1,
+      protein: 7.4,
+      calcium: 253,
+      potassium: 0,
+      iron: 0,
+      vitA: 316,
+      vitC: 0,
+      caffeine: 127,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Atlantic Salmon - cooked with dry heat (250g)',
+    totalCalories: 515,
+    totalKj: 2153 ,
+    nutritionFacts: {
+      totalFat: 30.9,
+      totalFatPercentage: 48,
+      saturatedFat: 6.3,
+      polyunsaturatedFat: 11.1,
+      monounsaturatedFat: 11.1,
+      cholesterol: 158,
+      totalCholesterolPercentage: 53,
+      sodium: 153,
+      totalSodiumPercentage: 6,
+      totalCarbohydrate: 0,
+      totalCarbohydratePercentage: 0,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 0,
+      protein: 55.3,
+      calcium: 38,
+      potassium: 960,
+      iron: 1,
+      vitA: 125,
+      vitC: 9,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Atlantic Cod - cooked with dry heat (250g)',
+    totalCalories: 262,
+    totalKj: 1097,
+    nutritionFacts: {
+      totalFat: 2.2,
+      totalFatPercentage: 3,
+      saturatedFat: 0.4,
+      polyunsaturatedFat: 0.7,
+      monounsaturatedFat: 0.3,
+      cholesterol: 138,
+      totalCholesterolPercentage: 46,
+      sodium: 195,
+      totalSodiumPercentage: 8,
+      totalCarbohydrate: 0,
+      totalCarbohydratePercentage: 0,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 0,
+      protein: 57.1,
+      calcium: 35,
+      potassium: 610,
+      iron: 1,
+      vitA: 113,
+      vitC: 3,
+    },
+    timeToBurn: {
+      swimming: 1,
+      running: 1.5,
+      cycling: 2,
+      walking: 4,
+    }
+  },
+  {
+    name: 'Ground Pork 21% fat (250g)',
+    totalCalories: 742,
+    totalKj: 3104,
+    nutritionFacts: {
+      totalFat: 51.9,
+      totalFatPercentage: 80,
+      saturatedFat: 19.3,
+      polyunsaturatedFat: 4.7,
+      monounsaturatedFat: 23.1,
+      cholesterol: 235,
+      totalCholesterolPercentage: 78,
+      sodium: 183,
+      totalSodiumPercentage: 8,
+      totalCarbohydrate: 0,
+      totalCarbohydratePercentage: 0,
+      fiber: 0,
+      totalFiberPercentage: 0,
+      sugars: 0,
+      protein: 64.2,
+      calcium: 55,
+      potassium: 905,
+      iron: 3,
+      vitA: 13,
+      vitC: 2,
     },
     timeToBurn: {
       swimming: 1,

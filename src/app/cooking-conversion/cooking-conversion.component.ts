@@ -23,7 +23,6 @@ export class CookingConversionComponent implements OnInit {
   }
 
   private buildForm() {
-
     this.modelForm = this.formBuilder.group({
       unit: [''],
       product: [''],

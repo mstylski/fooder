@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { nutritionFacts } from './nutrition-facts';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { NutritionModel } from '../shared/models/nutrition.model';
 
 @Component({
   selector: 'app-calorie-calculator',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calorie-calculator.component.scss']
 })
 export class CalorieCalculatorComponent implements OnInit {
+  readonly nutritionFacts = nutritionFacts;
+  readonly quantity: NutritionModel;
+  modelForm: FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder) {
   }
 
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
+  private buildForm() {
+
+    this.modelForm = this.formBuilder.group({
+      nutritionFacts: nutritionFacts[0],
+      quantity: [1]
+    });
+  }
 }

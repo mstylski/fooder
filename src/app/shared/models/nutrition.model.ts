@@ -2,7 +2,7 @@ export interface NutritionModel {
   name: string;
   totalCalories: number;
   totalKj: number;
-  quantity: number;
+  quantity?: number;
   nutritionFacts: NutritionFacts;
   timeToBurn: TimeToBurn;
 }
@@ -38,3 +38,4 @@ export interface TimeToBurn {
   cycling: number;
   walking: number;
 }
+
