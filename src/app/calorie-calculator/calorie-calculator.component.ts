@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { nutritionFacts } from './nutrition-facts';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NutritionModel } from '../shared/models/nutrition.model';
+import { Nutrition } from '../shared/models/nutrition';
 
 @Component({
   selector: 'app-calorie-calculator',
@@ -10,7 +10,6 @@ import { NutritionModel } from '../shared/models/nutrition.model';
 })
 export class CalorieCalculatorComponent implements OnInit {
   readonly nutritionFacts = nutritionFacts;
-  readonly quantity: NutritionModel;
   modelForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {

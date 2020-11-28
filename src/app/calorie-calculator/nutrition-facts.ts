@@ -1,6 +1,6 @@
-import { NutritionModel } from '../shared/models/nutrition.model';
+import { Nutrition } from '../shared/models/nutrition';
 
-export const nutritionFacts: NutritionModel[] = [
+export const nutritionFacts: Nutrition[] = [
   {
     name: 'Raw Peanuts (100g)',
     totalCalories: 566,
@@ -23,15 +23,17 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 25.8,
       calcium: 92,
       potassium: 705,
+      alcohol: 0,
       iron: 5,
       vitA: 0,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12,
       running: 8.7,
       cycling: 6.5,
-      walking: 3.6,
+      walking: 3.6
     }
   },
   {
@@ -56,15 +58,17 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 3.3,
       calcium: 116,
       potassium: 147,
+      alcohol: 0,
       iron: 1,
       vitA: 103,
       vitC: 0,
+      caffeine: 0,
     },
     timeToBurn: {
       swimming: 12.4,
       running: 8.8,
       cycling: 6.8,
-      walking: 3.6,
+      walking: 3.6
     }
   },
   {
@@ -89,9 +93,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.7,
       calcium: 78,
       potassium: 35,
+      alcohol: 0,
       iron: 1,
       vitA: 15,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -122,9 +128,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 4,
       calcium: 24,
       potassium: 975,
+      alcohol: 0,
       iron: 1,
       vitA: 291,
       vitC: 20,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -155,9 +163,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 1.1,
       calcium: 12,
       potassium: 292,
+      alcohol: 0,
       iron: 1,
       vitA: 1027,
       vitC: 16,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -188,9 +198,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.6,
       calcium: 10,
       potassium: 43,
+      alcohol: 0,
       iron: 1,
       vitA: 1027,
       vitC: 16,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -221,9 +233,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.6,
       calcium: 10,
       potassium: 43,
+      alcohol: 0,
       iron: 1,
       vitA: 1027,
       vitC: 16,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -254,9 +268,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 3.8,
       calcium: 13,
       potassium: 550,
+      alcohol: 0,
       iron: 1,
       vitA: 0,
       vitC: 3,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -287,9 +303,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 1.7,
       calcium: 8,
       potassium: 328,
+      alcohol: 0,
       iron: 1,
       vitA: 5,
       vitC: 7,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -320,9 +338,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.9,
       calcium: 99,
       potassium: 558,
+      alcohol: 0,
       iron: 3,
       vitA: 9375,
       vitC: 28,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -353,9 +373,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.8,
       calcium: 47,
       potassium: 316,
+      alcohol: 0,
       iron: 1,
       vitA: 625,
       vitC: 89,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -386,6 +408,7 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 7.7,
       calcium: 189,
       potassium: 372,
+      alcohol: 0,
       iron: 2,
       vitA: 175,
       vitC: 0,
@@ -420,9 +443,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 23.1,
       calcium: 11,
       potassium: 255,
+      alcohol: 0,
       iron: 1,
       vitA: 20,
       vitC: 1,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -453,9 +478,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 0.5,
       calcium: 11,
       potassium: 192,
+      alcohol: 0,
       iron: 1,
       vitA: 98,
       vitC: 8,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -486,9 +513,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 1.6,
       calcium: 11,
       potassium: 344,
+      alcohol: 0,
       iron: 1,
       vitA: 5102,
       vitC: 310,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -519,9 +548,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 11.4,
       calcium: 57,
       potassium: 486,
+      alcohol: 0,
       iron: 3,
       vitA: 0,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -552,9 +583,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 20.9,
       calcium: 10,
       potassium: 336,
+      alcohol: 0,
       iron: 2,
       vitA: 14,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -585,9 +618,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 6.6,
       calcium: 24,
       potassium: 1642,
+      alcohol: 0,
       iron: 2,
       vitA: 0,
       vitC: 19,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -618,9 +653,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 10.6,
       calcium: 110,
       potassium: 0,
+      alcohol: 0,
       iron: 0,
       vitA: 0,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -655,6 +692,7 @@ export const nutritionFacts: NutritionModel[] = [
       vitA: 0,
       vitC: 0,
       alcohol: 13.8,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -685,9 +723,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 2.3,
       calcium: 11,
       potassium: 93,
+      alcohol: 0,
       iron: 1,
       vitA: 5,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -718,9 +758,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 3.4,
       calcium: 7,
       potassium: 88,
+      alcohol: 0,
       iron: 1,
       vitA: 0,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -755,6 +797,7 @@ export const nutritionFacts: NutritionModel[] = [
       vitA: 0,
       vitC: 0,
       alcohol: 15.8,
+      caffeine: 0,
     },
     timeToBurn: {
       swimming: 12.4,
@@ -789,6 +832,7 @@ export const nutritionFacts: NutritionModel[] = [
       vitA: 0,
       vitC: 0,
       alcohol: 15.6,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -819,9 +863,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 6.3,
       calcium: 25,
       potassium: 63,
+      alcohol: 0,
       iron: 1,
       vitA: 293,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -852,9 +898,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 0.1,
       calcium: 1,
       potassium: 1,
+      alcohol: 0,
       iron: 1,
       vitA: 125,
       vitC: 0,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -885,6 +933,7 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 0,
       calcium: 0,
       potassium: 0,
+      alcohol: 0,
       iron: 0,
       vitA: 0,
       vitC: 0,
@@ -919,9 +968,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 0.8,
       calcium: 8,
       potassium: 153,
+      alcohol: 0,
       iron: 1,
       vitA: 18,
       vitC: 2,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -952,9 +1003,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 1.3,
       calcium: 0,
       potassium: 363,
+      alcohol: 0,
       iron: 1,
       vitA: 625,
       vitC: 3,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -985,6 +1038,7 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 7.4,
       calcium: 253,
       potassium: 0,
+      alcohol: 0,
       iron: 0,
       vitA: 316,
       vitC: 0,
@@ -1019,9 +1073,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 55.3,
       calcium: 38,
       potassium: 960,
+      alcohol: 0,
       iron: 1,
       vitA: 125,
       vitC: 9,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -1052,9 +1108,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 57.1,
       calcium: 35,
       potassium: 610,
+      alcohol: 0,
       iron: 1,
       vitA: 113,
       vitC: 3,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,
@@ -1085,9 +1143,11 @@ export const nutritionFacts: NutritionModel[] = [
       protein: 64.2,
       calcium: 55,
       potassium: 905,
+      alcohol: 0,
       iron: 3,
       vitA: 13,
       vitC: 2,
+      caffeine: 0
     },
     timeToBurn: {
       swimming: 12.4,

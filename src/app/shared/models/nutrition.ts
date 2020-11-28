@@ -1,10 +1,10 @@
-export interface NutritionModel {
-  name: string;
-  totalCalories: number;
-  totalKj: number;
+export interface Nutrition {
+  name?: string;
+  totalCalories?: number;
+  totalKj?: number;
   quantity?: number;
-  nutritionFacts: NutritionFacts;
-  timeToBurn: TimeToBurn;
+  nutritionFacts?: NutritionFacts;
+  timeToBurn?: TimeToBurn;
 }
 
 export interface NutritionFacts {

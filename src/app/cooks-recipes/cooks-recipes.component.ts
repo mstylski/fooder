@@ -12,7 +12,6 @@ import { Recipe, RecipeHttpPayload } from '../shared/models/recipe.model';
 })
 export class CooksRecipesComponent {
   user: User;
-  createdRecipeId: string;
 
 
   constructor(@Optional() @Inject(MAT_BOTTOM_SHEET_DATA) public data: User,
