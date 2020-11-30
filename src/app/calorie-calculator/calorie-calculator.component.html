@@ -37,7 +37,7 @@
       </form>
     </mat-card>
     <div class="mat-form-field-flex justify-content-between mt-3">
-      <button mat-raised-button color="primary">Add to Compare</button>
+      <button mat-raised-button color="primary" (click)=" addSelectedProductToMealsList()">Add to calculate</button>
     </div>
     <mat-card class="mt-3 mb-3">
       <mat-card-header>
@@ -73,6 +73,33 @@
       <p class="mt-4"><small>Based on a 35 year old female who is 5'7" tall and weighs 144 lbs.</small></p>
     </mat-card>
   </div>
+  <mat-card class="meal-plan mb-3">
+    <div class="meal-plan">
+      <fieldset class>
+        <table class="table table-hover" [formGroup]="mealsForm">
+          <thead>
+          <tr>
+            <th>Calories</th>
+            <th>Fat</th>
+            <th>Carbs</th>
+            <th>Protein</th>
+          </tr>
+          </thead>
+          <tbody formArrayName="meals">
+          <tr class="meal-plan mt-4" *ngFor="let meals of meals.controls; let i = index" [formGroupName]="i">
+            <td><input class="input" formControlName="calories"/>g</td>
+            <td><input class="input" name="fat" formControlName="fat"/>g</td>
+            <td><input class="input" name="carbs" formControlName="carbs"/>g</td>
+            <td><input class="input" name="protein" formControlName="protein"/>g</td>
+            <button class="button mr-1" mat-raised-button color="warn" (click)="removeMeal(meals)">
+              <span class="material-icons">delete</span>
+            </button>
+          </tr>
+          </tbody>
+        </table>
+      </fieldset>
+    </div>
+  </mat-card>
   <div class="nutrition-facts">
     <mat-card>
       <mat-card-header>
@@ -80,124 +107,175 @@
       </mat-card-header>
       <mat-card-content>
         <form [formGroup]="modelForm" *ngIf="modelForm">
-        <table class="table table-hover">
-          <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td>{{(modelForm?.value?.nutritionFacts?.totalCalories * modelForm?.value?.quantity).toFixed(1)}} Calories</td>
-            <td></td>
-            <td class="text-right">{{(modelForm?.value?.nutritionFacts?.totalKj * modelForm?.value?.quantity).toFixed(1)}}(kJ)</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td></td>
-            <td></td>
-            <td class="text-right">%DV*</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><strong>Total Fat</strong></td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalFat * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalFatPercentage * modelForm?.value?.quantity).toFixed(1)}} %</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Saturated Fat</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.saturatedFat * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Polyunsaturated Fat</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.polyunsaturatedFat * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Monounsaturated Fat</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.monounsaturatedFat * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><strong>Cholesterol</strong></td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.cholesterol * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCholesterolPercentage * modelForm?.value?.quantity).toFixed(1)}} %</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><strong>Sodium</strong></td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.sodium * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalSodiumPercentage * modelForm?.value?.quantity).toFixed(1)}} %</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><strong>Total Carbohydrate</strong></td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydrate * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydratePercentage * modelForm?.value?.quantity).toFixed(1)}} %</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td><strong>Fiber</strong></td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.fiber * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Sugars</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydrate * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Protein</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.protein * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Calcium</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.calcium * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Potassium</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.potassium * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Alcohol</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.alcohol * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Iron</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.iron * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Vitamin A</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.vitA * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Vitamin C</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.vitC * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Caffeine</td>
-            <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.caffeine * modelForm?.value?.quantity).toFixed(1)}} g</td>
-            <td class="text-right"></td>
-          </tr>
-          </tbody>
-        </table>
+          <table class="table table-hover">
+            <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>{{(modelForm?.value?.nutritionFacts?.totalCalories * modelForm?.value?.quantity).toFixed(1)}}
+                Calories
+              </td>
+              <td></td>
+              <td
+                class="text-right">{{(modelForm?.value?.nutritionFacts?.totalKj * modelForm?.value?.quantity).toFixed(1)}}
+                (kJ)
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td class="text-right">%DV*</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><strong>Total Fat</strong></td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalFat * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td
+                class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalFatPercentage * modelForm?.value?.quantity).toFixed(1)}}
+                %
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Saturated Fat</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.saturatedFat * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Polyunsaturated Fat</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.polyunsaturatedFat * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Monounsaturated Fat</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.monounsaturatedFat * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><strong>Cholesterol</strong></td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.cholesterol * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td
+                class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCholesterolPercentage * modelForm?.value?.quantity).toFixed(1)}}
+                %
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><strong>Sodium</strong></td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.sodium * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td
+                class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalSodiumPercentage * modelForm?.value?.quantity).toFixed(1)}}
+                %
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><strong>Total Carbohydrate</strong></td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydrate * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td
+                class="text-right">{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydratePercentage * modelForm?.value?.quantity).toFixed(1)}}
+                %
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td><strong>Fiber</strong></td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.fiber * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Sugars</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.totalCarbohydrate * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Protein</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.protein * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Calcium</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.calcium * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Potassium</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.potassium * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Alcohol</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.alcohol * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Iron</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.iron * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Vitamin A</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.vitA * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Vitamin C</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.vitC * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Caffeine</td>
+              <td>{{(modelForm?.value?.nutritionFacts?.nutritionFacts?.caffeine * modelForm?.value?.quantity).toFixed(1)}}
+                g
+              </td>
+              <td class="text-right"></td>
+            </tr>
+            </tbody>
+          </table>
         </form>
       </mat-card-content>
     </mat-card>
