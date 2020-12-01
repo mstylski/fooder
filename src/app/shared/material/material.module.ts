@@ -23,6 +23,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 
 
 const MaterialModules = [
@@ -60,6 +62,12 @@ const MaterialModules = [
   exports: MaterialModules,
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
+    {
+      provide: MAT_CHIPS_DEFAULT_OPTIONS,
+      useValue: {
+        separatorKeyCodes: [ENTER, COMMA]
+      }
+    }
   ]
 })
 export class MaterialModule {

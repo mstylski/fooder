@@ -1,0 +1,39 @@
+@import "src/assets/styles/variables";
+
+.facts {
+  width: 100%;
+}
+
+.nutrition-facts {
+  width: 100%;
+}
+
+.calories {
+  width: 160px;
+}
+
+.table th, .table td {
+  padding: 2.4px;
+}
+
+.meal-plan {
+  width: 100%;
+}
+
+.input {
+  width: 45px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.mat-standard-chip {
+  width: 160px;
+}
+
+.trash {
+  color: $red;
+}
+
+.mat-card {
+  margin: 1px;
+}

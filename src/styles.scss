@@ -187,7 +187,7 @@ mat-form-field {
 
 .mat-dialog-actions {
   align-items: stretch;
-  flex-wrap: inherit!important;
+  //flex-wrap: inherit!important;
 }
 
 .mat-card-header {
@@ -213,3 +213,4 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:la
   padding-right: 24px;
   text-align: center;
 }
+

@@ -9,15 +9,20 @@ import { RecipesModule } from './recipes/recipes.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpHeadersInterceptor } from './auth/http-headers.interceptor';
 import { MaterialModule } from './shared/material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/recipe.service';
 import { AboutAuthorComponent } from './about-author/about-author.component';
+import { CookingConversionComponent } from './cooking-conversion/cooking-conversion.component';
+import { CalorieCalculatorComponent } from './calorie-calculator/calorie-calculator.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutAuthorComponent,
+    CookingConversionComponent,
+    CalorieCalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,9 @@ import { AboutAuthorComponent } from './about-author/about-author.component';
     CoreModule,
     RecipesModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatChipsModule
   ],
   providers: [
     RecipeService,

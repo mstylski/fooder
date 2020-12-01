@@ -1,0 +1,44 @@
+<div class="d-md-flex justify-content-between conversion-data">
+  <h4 class="mt-3 mb-5 ml-4"><strong>Calculate your products</strong><span class="material-icons">calculate</span>
+    <div>
+      <br>
+      <form [formGroup]="modelForm" *ngIf="modelForm" class="calculation-data">
+        <mat-form-field>
+          <mat-label>Products</mat-label>
+          <mat-select matInput formControlName="product">
+            <mat-option *ngFor="let product of products" [value]="product">{{ product.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br><br>
+        <div><p>Number of units:</p></div>
+        <mat-form-field>
+<textarea matInput formControlName="count">
+<mat-option></mat-option>
+</textarea>
+        </mat-form-field>
+      </form>
+    </div>
+    <div>
+      <p>{{ modelForm?.value?.product?.units?.glass * modelForm?.value?.count }}  glass/glasses</p>
+      <p>{{ modelForm?.value?.product?.units?.teaspoon * modelForm?.value?.count }}   teaspoons</p>
+      <p>{{ modelForm?.value?.product?.units?.spoon * modelForm?.value?.count }}  spoons</p>
+      <p>{{ modelForm?.value?.product?.units?.grams * modelForm?.value?.count }} grams</p>
+      <p>{{ modelForm?.value?.product?.units?.dag * modelForm?.value?.count }} dags</p>
+      <p>{{ (modelForm?.value?.product?.units?.liter * modelForm?.value?.count).toFixed(1) }} liters</p>
+    </div>
+    <div class="mt-5">
+      Extra conversion:
+      <p>
+        <br>
+        1 glass = 250ml <br>
+        1 spoon = 15ml <br>
+        1 teaspoon = 5ml <br>
+        10 g = 1 dag <br>
+        100 g = 10 dag <br>
+        1000 g = 1 kg <br>
+      </p>
+    </div>
+  </h4>
+  <div><img class="img-fluid mt-3" src="assets/images/coversion.jpg" alt="conversion"></div>
+</div>
+
