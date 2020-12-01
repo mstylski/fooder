@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { nutritionFacts } from './nutrition-facts';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,10 +9,12 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CalorieCalculatorComponent implements OnInit {
   readonly nutritionFacts = nutritionFacts;
+  summed: number;
   modelForm: FormGroup;
   mealsForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private ref: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -26,7 +28,8 @@ export class CalorieCalculatorComponent implements OnInit {
       quantity: [1]
     });
     this.mealsForm = this.formBuilder.group({
-      meals: this.formBuilder.array([])
+      meals: this.formBuilder.array([]),
+      summed: [null]
     });
   }
 
@@ -35,9 +38,9 @@ export class CalorieCalculatorComponent implements OnInit {
     const count = this.modelForm?.value?.quantity;
     return this.formBuilder.group({
       calories: this.modelForm?.value?.nutritionFacts.totalCalories * count,
-      fat: basicFacts?.totalFat * count,
-      carbs: basicFacts?.totalCarbohydrate * count,
-      protein: basicFacts?.protein * count,
+      fat: Math.round(basicFacts?.totalFat * count) ,
+      carbs: Math.round(basicFacts?.totalCarbohydrate * count),
+      protein: Math.round(basicFacts?.protein * count),
     });
   }
 
@@ -53,14 +56,16 @@ export class CalorieCalculatorComponent implements OnInit {
     this.meals.removeAt(i);
   }
 
-  totalAmount(): FormGroup {
-    const basicFacts = this.modelForm?.value?.nutritionFacts.nutritionFacts;
-    const count = this.modelForm?.value?.quantity;
-    return this.formBuilder.group({
-      calories: this.modelForm?.value?.nutritionFacts.totalCalories * count,
-      fat: basicFacts?.totalFat * count,
-      carbs: basicFacts?.totalCarbohydrate * count,
-      protein: basicFacts?.protein * count,
-    });
+  totalAmount() {
+    return {
+      calories: Math.round((this.meals.controls
+        .reduce((acc, mealsForm) => acc + mealsForm.get('calories').value, 0))),
+      fat: Math.round((this.meals.controls
+        .reduce((acc, mealsForm) => acc + mealsForm.get('fat').value, 0))),
+      carbs: Math.round((this.meals.controls
+        .reduce((acc, mealsForm) => acc + mealsForm.get('carbs').value, 0))),
+      protein: Math.round((this.meals.controls.
+      reduce((acc, mealsForm) => acc + mealsForm.get('protein').value, 0))),
+    };
   }
 }
