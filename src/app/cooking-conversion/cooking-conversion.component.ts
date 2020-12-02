@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { products } from './products';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Count, Units } from '../shared/models/product.model';
+import { Units } from '../shared/models/product.model';
 
 @Component({
   selector: 'app-cooking-conversion',
@@ -11,7 +11,6 @@ import { Count, Units } from '../shared/models/product.model';
 export class CookingConversionComponent implements OnInit {
   readonly products = products;
   readonly unit: Units;
-  readonly count: Count;
 
   modelForm: FormGroup;
 
@@ -24,7 +23,6 @@ export class CookingConversionComponent implements OnInit {
 
   private buildForm() {
     this.modelForm = this.formBuilder.group({
-      unit: [''],
       product: [''],
       count: [1]
     });

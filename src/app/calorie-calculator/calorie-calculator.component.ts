@@ -12,22 +12,10 @@ export class CalorieCalculatorComponent implements OnInit {
   modelForm: FormGroup;
   mealsForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.buildForm();
-  }
-
-  private buildForm() {
-    this.modelForm = this.formBuilder.group({
-      nutritionFacts: nutritionFacts[0],
-      quantity: [1]
-    });
-    this.mealsForm = this.formBuilder.group({
-      meals: this.formBuilder.array([]),
-      summed: [null]
-    });
   }
 
   selectedProductFormGroup(): FormGroup {
@@ -53,7 +41,7 @@ export class CalorieCalculatorComponent implements OnInit {
     this.meals.removeAt(i);
   }
 
-  totalAmount() {
+  getTotalAmount() {
     return {
       calories: Math.round((this.meals.controls
         .reduce((acc, mealsForm) => acc + mealsForm.get('calories').value, 0))),
@@ -63,5 +51,16 @@ export class CalorieCalculatorComponent implements OnInit {
         .reduce((acc, mealsForm) => acc + mealsForm.get('carbs').value, 0))),
       protein: Math.round((this.meals.controls.reduce((acc, mealsForm) => acc + mealsForm.get('protein').value, 0))),
     };
+  }
+
+  private buildForm() {
+    this.modelForm = this.formBuilder.group({
+      nutritionFacts: nutritionFacts[0],
+      quantity: [1]
+    });
+    this.mealsForm = this.formBuilder.group({
+      meals: this.formBuilder.array([]),
+      summed: [null]
+    });
   }
 }
