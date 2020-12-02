@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { nutritionFacts } from './nutrition-facts';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,17 +9,14 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CalorieCalculatorComponent implements OnInit {
   readonly nutritionFacts = nutritionFacts;
-  summed: number;
   modelForm: FormGroup;
   mealsForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private ref: ChangeDetectorRef) {
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
     this.buildForm();
-    this.totalAmount();
   }
 
   private buildForm() {
@@ -38,7 +35,7 @@ export class CalorieCalculatorComponent implements OnInit {
     const count = this.modelForm?.value?.quantity;
     return this.formBuilder.group({
       calories: this.modelForm?.value?.nutritionFacts.totalCalories * count,
-      fat: Math.round(basicFacts?.totalFat * count) ,
+      fat: Math.round(basicFacts?.totalFat * count),
       carbs: Math.round(basicFacts?.totalCarbohydrate * count),
       protein: Math.round(basicFacts?.protein * count),
     });
@@ -64,8 +61,7 @@ export class CalorieCalculatorComponent implements OnInit {
         .reduce((acc, mealsForm) => acc + mealsForm.get('fat').value, 0))),
       carbs: Math.round((this.meals.controls
         .reduce((acc, mealsForm) => acc + mealsForm.get('carbs').value, 0))),
-      protein: Math.round((this.meals.controls.
-      reduce((acc, mealsForm) => acc + mealsForm.get('protein').value, 0))),
+      protein: Math.round((this.meals.controls.reduce((acc, mealsForm) => acc + mealsForm.get('protein').value, 0))),
     };
   }
 }
