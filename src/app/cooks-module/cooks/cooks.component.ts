@@ -63,7 +63,6 @@ export class CooksComponent implements OnInit, OnDestroy {
         this.cooks = cooks;
         this.calculateTotalNumberOfRecipes();
       });
-
     this.subscriptions.add(subscription);
   }
 

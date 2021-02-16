@@ -1,4 +1,4 @@
-export interface Nutrition {
+export interface NutritionModel {
   name?: string;
   totalCalories?: number;
   totalKj?: number;

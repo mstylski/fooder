@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { products } from './products';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Units } from '../shared/models/product.model';
 
 @Component({
   selector: 'app-cooking-conversion',
@@ -9,8 +8,7 @@ import { Units } from '../shared/models/product.model';
   styleUrls: ['./cooking-conversion.component.scss']
 })
 export class CookingConversionComponent implements OnInit {
-  readonly products = products;
-  readonly unit: Units;
+  products = products;
 
   modelForm: FormGroup;
 

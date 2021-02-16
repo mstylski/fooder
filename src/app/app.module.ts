@@ -14,7 +14,6 @@ import { RecipeService } from './recipes/recipe.service';
 import { AboutAuthorComponent } from './about-author/about-author.component';
 import { CookingConversionComponent } from './cooking-conversion/cooking-conversion.component';
 import { CalorieCalculatorComponent } from './calorie-calculator/calorie-calculator.component';
-import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -34,7 +33,6 @@ import { MatChipsModule } from '@angular/material/chips';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    MatChipsModule
   ],
   providers: [
     RecipeService,

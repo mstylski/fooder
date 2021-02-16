@@ -67,7 +67,6 @@ export class AuthService {
   }
 
   pushUser() {
-
     this.getMe()
       .pipe(filter(Boolean))
       .subscribe(user => {

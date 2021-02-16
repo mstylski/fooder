@@ -1,6 +1,6 @@
-import { Nutrition } from '../shared/models/nutrition';
+import { NutritionModel } from '../shared/models/nutrition.model';
 
-export const nutritionFacts: Nutrition[] = [
+export const nutritionFacts: NutritionModel[] = [
   {
     name: 'Raw Peanuts (100g)',
     totalCalories: 566,

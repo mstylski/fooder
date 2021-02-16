@@ -24,7 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
+import { MAT_CHIPS_DEFAULT_OPTIONS, MatChipsModule } from '@angular/material/chips';
 
 
 const MaterialModules = [
@@ -55,7 +55,8 @@ const MaterialModules = [
   MatNativeDateModule,
   MatTableModule,
   MatSortModule,
-  MatBottomSheetModule
+  MatBottomSheetModule,
+  MatChipsModule
 ];
 
 @NgModule({

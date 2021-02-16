@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { User } from '../../../shared/models/user.model';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
